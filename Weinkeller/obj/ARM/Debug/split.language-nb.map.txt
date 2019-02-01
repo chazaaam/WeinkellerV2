@@ -1,0 +1,6 @@
+﻿[ResourceMetadata]
+"ResourceId"			"split.language-nb"
+"ResourceDimensions"		"language-nb-no"
+
+[Files]
+"C:\Users\User\Documents\GitHub\Weinkeller v2\Weinkeller\obj\ARM\Debug\split.language-nb.pri"			"resources.pri"

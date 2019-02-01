@@ -1,0 +1,6 @@
+﻿[ResourceMetadata]
+"ResourceId"			"split.language-ka"
+"ResourceDimensions"		"language-ka-ge"
+
+[Files]
+"C:\Users\User\Documents\GitHub\Weinkeller v2\Weinkeller\obj\ARM\Debug\split.language-ka.pri"			"resources.pri"

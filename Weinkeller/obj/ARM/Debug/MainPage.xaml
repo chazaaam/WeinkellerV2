@@ -1,0 +1,29 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Weinkeller"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Custom="using:Microsoft.UI.Xaml.Controls"
+    x:Class="Weinkeller.MainPage"
+    mc:Ignorable="d"
+    Background="Black">
+    <NavigationView x:ConnectionId='2' x:Name="NavMain" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" IsBackButtonVisible="Collapsed" IsPaneToggleButtonVisible="False" PaneDisplayMode="LeftCompact"                                                                                                       IsSettingsVisible="True" RequestedTheme="Dark">
+        <NavigationView.MenuItems>
+            <NavigationViewItem Tag="weinkeller" Icon="Home" FontSize="36" Margin="0,0,0,10" HorizontalAlignment="Left" >
+                <TextBlock Tag="Nav_Weinkeller">Weinkeller</TextBlock>
+            </NavigationViewItem>
+            <NavigationViewItem Tag="suchen" Icon="Find" FontSize="36" Margin="0,0,0,10" HorizontalAlignment="Left" >
+                <TextBlock Tag="Nav_Durchsuchen"></TextBlock>
+            </NavigationViewItem>
+            <NavigationViewItem Tag="add" Icon="Add" FontSize="36" Margin="0,0,0,10" HorizontalAlignment="Left">
+                <TextBlock Tag="Nav_Hinzufuegen"></TextBlock>
+            </NavigationViewItem>
+            <NavigationViewItem Tag="remove" Icon="Remove" FontSize="36" Margin="0,0,0,10" HorizontalAlignment="Left">
+                <TextBlock Tag="Nav_Abziehen"></TextBlock>
+            </NavigationViewItem>
+        </NavigationView.MenuItems>
+        <Frame x:ConnectionId='3' x:Name="MainFrame" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"></Frame>
+    </NavigationView>
+</Page>
+

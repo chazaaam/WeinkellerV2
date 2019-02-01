@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DeviceId>30F105C9-681E-420b-A277-7C086EAD8A4E</DeviceId>
+    <UseEmulator>false</UseEmulator>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SplashScreenSource>Z:\Shared Folder\weinkeller Logo.png</SplashScreenSource>
+    <AppIconSource>Z:\Shared Folder\weinkeller Logo.png</AppIconSource>
+    <Source>Z:\Shared Folder\weinkeller Logo.png</Source>
+    <SmallTileSource>Z:\Shared Folder\weinkeller Logo.png</SmallTileSource>
+    <MediumTileSource>Z:\Shared Folder\weinkeller Logo.png</MediumTileSource>
+    <WideTileSource>Z:\Shared Folder\weinkeller Logo.png</WideTileSource>
+    <LargeTileSource>Z:\Shared Folder\weinkeller Logo.png</LargeTileSource>
+    <PackageLogoSource>Z:\Shared Folder\weinkeller Logo.png</PackageLogoSource>
+    <AppxPackageIsForStore>False</AppxPackageIsForStore>
+    <AppxShowAllApps>False</AppxShowAllApps>
+    <AppxBuildConfigurationSelection>x86|x64|arm</AppxBuildConfigurationSelection>
+    <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DeviceId>30F105C9-681E-420b-A277-7C086EAD8A4E</DeviceId>
+    <UseEmulator>true</UseEmulator>
+  </PropertyGroup>
+</Project>

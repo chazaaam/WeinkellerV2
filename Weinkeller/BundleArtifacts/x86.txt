@@ -1,0 +1,2 @@
+MainPackage=C:\Users\User\Documents\GitHub\Weinkeller v2\Weinkeller\bin\x86\Debug\Weinkeller_1.0.0.0_x86_Debug.appx
+SymbolPackage=C:\Users\User\Documents\GitHub\Weinkeller v2\Weinkeller\AppPackages\Weinkeller_1.0.0.0_Debug_Test\Weinkeller_1.0.0.0_x86_Debug.appxsym
