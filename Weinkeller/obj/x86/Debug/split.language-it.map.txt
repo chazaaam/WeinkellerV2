@@ -3,4 +3,4 @@
 "ResourceDimensions"		"language-it-it"
 
 [Files]
-"C:\Users\User\Documents\GitHub\Weinkeller v2\Weinkeller\obj\x86\Debug\split.language-it.pri"			"resources.pri"
+"C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\obj\x86\Debug\split.language-it.pri"			"resources.pri"

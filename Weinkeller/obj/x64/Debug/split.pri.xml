@@ -114,6 +114,11 @@
 						<Value>Assets\Wide310x150Logo.scale-200.png</Value>
 					</Candidate>
 				</NamedResource>
+				<NamedResource name="wineloading.gif" uri="ms-resource://41c87e3c-f0e7-487c-a920-ddfa96e663d6/Files/Assets/wineloading.gif">
+					<Candidate type="Path">
+						<Value>Assets\wineloading.gif</Value>
+					</Candidate>
+				</NamedResource>
 			</ResourceMapSubtree>
 			<ResourceMapSubtree name="Microsoft.UI.Xaml">
 				<ResourceMapSubtree name="Assets">

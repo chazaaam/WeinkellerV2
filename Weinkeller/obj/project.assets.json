@@ -8356,11 +8356,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\Weinkeller v2\\Weinkeller\\Weinkeller.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\WeinkellerV2\\Weinkeller\\Weinkeller.csproj",
       "projectName": "Weinkeller",
-      "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Weinkeller v2\\Weinkeller\\Weinkeller.csproj",
+      "projectPath": "C:\\Users\\User\\Documents\\GitHub\\WeinkellerV2\\Weinkeller\\Weinkeller.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Documents\\GitHub\\Weinkeller v2\\Weinkeller\\obj\\",
+      "outputPath": "C:\\Users\\User\\Documents\\GitHub\\WeinkellerV2\\Weinkeller\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

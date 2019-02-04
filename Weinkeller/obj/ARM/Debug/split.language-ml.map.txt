@@ -3,4 +3,4 @@
 "ResourceDimensions"		"language-ml-in"
 
 [Files]
-"C:\Users\User\Documents\GitHub\Weinkeller v2\Weinkeller\obj\ARM\Debug\split.language-ml.pri"			"resources.pri"
+"C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\obj\ARM\Debug\split.language-ml.pri"			"resources.pri"

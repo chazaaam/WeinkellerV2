@@ -68,7 +68,8 @@ namespace Weinkeller
         {
             if (args.IsSettingsInvoked)
             {
-                Show_ShutdownMenu();
+                //Show_ShutdownMenu();
+                MainFrame.Navigate(typeof(SettingsPage));
             }
             else
             {

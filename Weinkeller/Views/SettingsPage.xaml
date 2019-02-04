@@ -5,11 +5,39 @@
     xmlns:local="using:Weinkeller.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d" Loaded="Page_Loaded">
+    <Page.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black"/>
+            <GradientStop Color="#FF230101" Offset="1"/>
+        </LinearGradientBrush>
+    </Page.Background>
 
     <Grid>
-      
+        <TextBlock HorizontalAlignment="Left" Margin="50,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Angelegte Barcodes:" FontFamily="Georgia" Foreground="White"/>
+        <TextBlock x:Name="text_anzahl_barcodes" HorizontalAlignment="Left" Margin="660,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="_anzahl_barcodes_" FontFamily="Georgia" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Barcodes mit >0 Flaschen:" FontFamily="Georgia" Foreground="White"/>
+        <TextBlock x:Name="text_anzahl_barcodes_gt_zero" HorizontalAlignment="Left" Margin="660,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="_anzahl_>0_:" FontFamily="Georgia" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,471,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Barcodes mit 0 Flaschen:" FontFamily="Georgia" Foreground="White"/>
+        <TextBlock x:Name="text_anzahl_barcodes_is_zero" HorizontalAlignment="Left" Margin="660,471,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="_anzahl_0_" FontFamily="Georgia" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,633,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Flaschen auf Lager:" FontFamily="Georgia" Foreground="White"/>
+        <TextBlock x:Name="text_anzahl_flaschen" HorizontalAlignment="Left" Margin="660,633,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="_flaschen_" FontFamily="Georgia" Foreground="White"/>
+
+        <Rectangle HorizontalAlignment="Left" Height="8" Margin="49,785,0,0" VerticalAlignment="Top" Width="1816" StrokeThickness="3">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button x:Name="btn_system_neustart" Content=" Windows &#xa;neu starten" HorizontalAlignment="Right" Margin="0,858,70,0" VerticalAlignment="Top" Height="153" Width="366" FontSize="36" Background="#FF5F5E5E" Click="Btn_system_neustart_Click"/>
+        <Button x:Name="btn_system_beenden" Content="Windows &#xa;beenden" HorizontalAlignment="Left" Margin="1063,858,0,0" VerticalAlignment="Top" Height="153" Width="366" FontSize="36" Background="#FF5F5E5E" Click="Btn_system_beenden_Click"/>
+        <Button x:Name="btn_app_neustart" Content="Weinkeller &#xa;neu starten" HorizontalAlignment="Left" Margin="492,858,0,0" VerticalAlignment="Top" Height="153" Width="366" FontSize="36" Background="#FF5F5E5E" Click="Btn_app_neustart_Click"/>
+        <Button x:Name="btn_app_beenden" Content="Weinkeller &#xa; beenden" HorizontalAlignment="Left" Margin="70,858,0,0" VerticalAlignment="Top" Height="153" Width="366" FontSize="36" Background="#FF5F5E5E" Click="Btn_app_beenden_Click"/>
+        <Button x:Name="btn_data_delete" Content="Alle Einträge löschen" HorizontalAlignment="Left" Margin="1388,127,0,0" VerticalAlignment="Top" Height="153" Width="366" FontSize="36" Background="#FF5F5E5E" Click="Btn_data_delete_Click"/>
+        <Button x:Name="btn_data_delete_zero" Content="Alle ungelagerten&#xa;Barcodes löschen" HorizontalAlignment="Left" Margin="1388,355,0,0" VerticalAlignment="Top" Height="153" Width="366" FontSize="36" Background="#FF5F5E5E" Click="Btn_data_delete_zero_Click"/>
+        <Button x:Name="btn_data_delete_one" Content="Barcodeintrag&#xa;     löschen" HorizontalAlignment="Left" Margin="1388,578,0,0" VerticalAlignment="Top" Height="153" Width="366" FontSize="36" Background="#FF5F5E5E" Click="Btn_data_delete_one_Click"/>
 
     </Grid>
 </Page>

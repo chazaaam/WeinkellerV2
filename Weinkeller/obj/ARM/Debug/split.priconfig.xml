@@ -6,7 +6,7 @@
     <autoResourcePackage qualifier="DXFeatureLevel" />
     <omitSchemaFromResourcePacks />
   </packaging>
-  <index root="\" startIndexAt="C:\Users\User\Documents\GitHub\Weinkeller v2\Weinkeller\bin\ARM\Debug\resources.pri">
+  <index root="\" startIndexAt="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\ARM\Debug\resources.pri">
     <default>
       <qualifier name="Language" value="de-DE" />
       <qualifier name="Contrast" value="standard" />
