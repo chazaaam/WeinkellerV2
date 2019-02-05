@@ -64,6 +64,8 @@
                ManipulationMode="TranslateX,TranslateInertia,System" 
                ManipulationDelta="SwipeableTextBlock_ManipulationDelta"
                ManipulationCompleted="SwipeableTextBlock_ManipulationCompleted" DoubleTapped="SwipeableTextBlock_DoubleTapped"/>
+            <Button x:Name="btn_amazon" Content="Button" HorizontalAlignment="Left" Margin="41,883,0,0" VerticalAlignment="Top" Height="90" Width="222" Background="White" Click="Btn_amazon_Click"/>
         </Grid>
+        <WebView x:Name="webView_amazon" Source="http://google.de" HorizontalAlignment="Stretch" Height="800" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="1200"/>
     </Grid>
 </Page>

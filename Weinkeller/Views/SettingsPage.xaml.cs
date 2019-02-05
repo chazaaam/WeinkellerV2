@@ -63,59 +63,66 @@ namespace Weinkeller.Views
 
             count_flaschen = 0;
 
-            List<string> filenameList = new List<string>();
-            StorageFolder dataFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-
-            IReadOnlyList<StorageFile> fileList = await dataFolder.GetFilesAsync();
-
-            foreach (StorageFile file in fileList)
-            {
-                if (file.FileType.ToString() == ".txt")
-                    filenameList.Add(file.Name);
-            }
-
-            for (int i = 0; i < filenameList.Count; i++)
+            try
             {
 
+                List<string> filenameList = new List<string>();
+                StorageFolder dataFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
 
-                Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-                Windows.Storage.StorageFile sampleFile = await storageFolder.GetFileAsync(filenameList[i]);
+                IReadOnlyList<StorageFile> fileList = await dataFolder.GetFilesAsync();
 
-                string text = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
+                foreach (StorageFile file in fileList)
+                {
+                    if (file.FileType.ToString() == ".txt")
+                        filenameList.Add(file.Name);
+                }
 
-                temp_barcode = text.Substring(0, text.IndexOf(";"));
-                temp_string = text.Substring(text.IndexOf(";") + 1);
-                temp_name = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_detailname = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_vendor = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_origin = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_descr = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_type = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_quantity = Convert.ToInt32(temp_string);
+                for (int i = 0; i < filenameList.Count; i++)
+                {
 
 
-                if (temp_quantity != 0)
-                    WeinList.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity));
-                else
-                    WeinListEmpty.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity));
+                    Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                    Windows.Storage.StorageFile sampleFile = await storageFolder.GetFileAsync(filenameList[i]);
 
-                count_flaschen += temp_quantity;
+                    string text = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
+
+                    temp_barcode = text.Substring(0, text.IndexOf(";"));
+                    temp_string = text.Substring(text.IndexOf(";") + 1);
+                    temp_name = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_detailname = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_vendor = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_origin = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_descr = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_type = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_quantity = Convert.ToInt32(temp_string);
+
+
+                    if (temp_quantity != 0)
+                        WeinList.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity));
+                    else
+                        WeinListEmpty.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity));
+
+                    count_flaschen += temp_quantity;
+                }
+                count_barcode_gt_zero = WeinList.Count();
+                count_barcode_is_zero = WeinListEmpty.Count();
+                count_barcode = count_barcode_gt_zero + count_barcode_is_zero;
+
+                text_anzahl_barcodes.Text = count_barcode.ToString();
+                text_anzahl_barcodes_gt_zero.Text = count_barcode_gt_zero.ToString();
+                text_anzahl_barcodes_is_zero.Text = count_barcode_is_zero.ToString();
+
+                text_anzahl_flaschen.Text = count_flaschen.ToString();
+            }catch(Exception ex)
+            {
+                Show_Message("Es ist ein Fehler beim Öffnen der Dateien aufgetreten.\nBitte überprüfen Sie den Speicherort. \n\nFehler: " + ex.Message, "Fehler");
             }
-            count_barcode_gt_zero = WeinList.Count();
-            count_barcode_is_zero = WeinListEmpty.Count();
-            count_barcode = count_barcode_gt_zero + count_barcode_is_zero;
-
-            text_anzahl_barcodes.Text = count_barcode.ToString();
-            text_anzahl_barcodes_gt_zero.Text = count_barcode_gt_zero.ToString();
-            text_anzahl_barcodes_is_zero.Text = count_barcode_is_zero.ToString();
-
-            text_anzahl_flaschen.Text = count_flaschen.ToString();
         }
 
         private async void Btn_data_delete_Click(object sender, RoutedEventArgs e)
@@ -139,7 +146,7 @@ namespace Weinkeller.Views
             }
         }
 
-        private async void Btn_data_delete_one_Click(object sender, RoutedEventArgs e)
+        private void Btn_data_delete_one_Click(object sender, RoutedEventArgs e)
         {
             InputTextDialogAsync("Barcode zum löschen eingeben");
         }
@@ -216,7 +223,7 @@ namespace Weinkeller.Views
                 {
                     for (int i = 0; i < e_weinList.Count(); i++)
                     {
-                        if(file.Name == e_weinList[i].getBarcode() + ".txt" || file.Name == e_weinList[i].getBarcode() + ".jpg")
+                        if (file.Name == e_weinList[i].getBarcode() + ".txt" || file.Name == e_weinList[i].getBarcode() + ".jpg")
                         {
                             await file.DeleteAsync();
                             counter++;
@@ -227,8 +234,10 @@ namespace Weinkeller.Views
 
             await User_Check("Es wurden " + counter + " Einträge gelöscht.\n\n Zur Hauptseite zurückkeheren?", "Einträge gelöscht");
 
-            if(result)
+            if (result)
+            {
                 this.Frame.Navigate(typeof(WeinkellerPage));
+            }
 
 
         }
@@ -253,6 +262,12 @@ namespace Weinkeller.Views
                 portListe.Add(tempwein);
                 Delete_Data(portListe);
             }
+        }
+
+        private async void Show_Message(string Message, string Titel)
+        {
+            var messageCheck = new MessageDialog(Message, Titel);
+            await messageCheck.ShowAsync();
         }
 
     }

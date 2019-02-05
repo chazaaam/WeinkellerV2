@@ -32,7 +32,6 @@ namespace Weinkeller
         public MainPage()
         {
             this.InitializeComponent();
-            //MainFrame.Navigate(typeof(WeinkellerPage));
         }
 
         private void NavMain_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
@@ -68,7 +67,6 @@ namespace Weinkeller
         {
             if (args.IsSettingsInvoked)
             {
-                //Show_ShutdownMenu();
                 MainFrame.Navigate(typeof(SettingsPage));
             }
             else
@@ -99,71 +97,6 @@ namespace Weinkeller
             }
         }
 
-        private async void Show_ShutdownMenu()
-        {
-            var messageCheck = new MessageDialog("Option Auswählen", "Option");
-            messageCheck.Commands.Add(new UICommand("Weinkeller", null, 0));
-            messageCheck.Commands.Add(new UICommand("System", null, 1));
-            messageCheck.Commands.Add(new UICommand("Abbrechen", null, 2)); 
-               
-            messageCheck.DefaultCommandIndex = 2;
-
-            var commandChosen = await messageCheck.ShowAsync();
-
-            if (commandChosen.Label == "Weinkeller")
-            {
-                messageCheck = new MessageDialog("Option Auswählen", "Weinkeller");
-                messageCheck.Commands.Add(new UICommand("Weinkeller neu starten", null, 0));
-                messageCheck.Commands.Add(new UICommand("Weinkeller beenden", null, 1));
-                messageCheck.Commands.Add(new UICommand("Abbrechen", null, 2));
-
-                messageCheck.DefaultCommandIndex = 2;
-                commandChosen = await messageCheck.ShowAsync();
-
-                if (commandChosen.Label == "Weinkeller neu starten")
-                {
-                    // Programm neu starten
-                    await CoreApplication.RequestRestartAsync("Weinkeller wird neu gestartet");
-                }
-                else if (commandChosen.Label == "Weinkeller beenden")
-                {
-                    // Programm beenden
-                    CoreApplication.Exit();
-                }
-                else if (commandChosen.Label == "Abbrechen")
-                {
-                    // Auf Hauptseite wechseln
-                    MainFrame.Navigate(typeof(WeinkellerPage));
-                }
-            }
-            else if(commandChosen.Label == "System")
-            {
-                messageCheck = new MessageDialog("Option Auswählen", "System");
-                messageCheck.Commands.Add(new UICommand("Windows neu starten", null, 0));
-                messageCheck.Commands.Add(new UICommand("Windows herunterfahren", null, 1));
-                messageCheck.Commands.Add(new UICommand("Abbrechen", null, 2));
-
-                messageCheck.DefaultCommandIndex = 2;
-                commandChosen = await messageCheck.ShowAsync();
-
-                if (commandChosen.Label == "Windows neu starten")
-                {
-                    // System neustarten
-                    ShutdownManager.BeginShutdown(ShutdownKind.Restart, TimeSpan.FromSeconds(0));
-                }
-                else if (commandChosen.Label == "Windows herunterfahren")
-                {
-                    // System herunterfahren
-                    ShutdownManager.BeginShutdown(ShutdownKind.Shutdown, TimeSpan.FromSeconds(0));
-                }
-                else if (commandChosen.Label == "Abbrechen")
-                {
-                    // Auf Hauptseite wechseln
-                    MainFrame.Navigate(typeof(WeinkellerPage));
-                }
-            }
-        }
-
         private async void InputTextDialogAsync(string title)
         {
             string barcode;
@@ -190,14 +123,24 @@ namespace Weinkeller
 
         private void RemoveBottle(string barcode)
         {
+            bool removed;
             for (int i = 0; i < WeinList.Count(); i++)
             {
                 if (WeinList[i].getBarcode() == barcode)
                 {
-                    WeinList[i].removeBottle();
+                    removed = WeinList[i].removeBottle();
 
-                    CreateFile(WeinList[i].getBarcode(), WeinList[i].getName(), WeinList[i].getDetailname(), WeinList[i].getVendor(), WeinList[i].getOrigin(), WeinList[i].getDescr(), WeinList[i].getTyp(), WeinList[i].getQuantity());
-                    return;
+                    if (removed)
+                    {
+                        CreateFile(WeinList[i].getBarcode(), WeinList[i].getName(), WeinList[i].getDetailname(), WeinList[i].getVendor(), WeinList[i].getOrigin(), WeinList[i].getDescr(), WeinList[i].getTyp(), WeinList[i].getQuantity());
+                        return;
+                    }
+                    else
+                    {
+                        Show_Message("Flaschenmenge für diesen Barcode ist bereits 0", "Flasche entfernen");
+                        MainFrame.Navigate(typeof(WeinkellerPage));
+                        return;
+                    }
                 }
 
             }
@@ -215,45 +158,50 @@ namespace Weinkeller
             string temp_descr;
             string temp_type;
             int temp_quantity;
-
             string temp_string;
 
-            List<string> filenameList = new List<string>();
-            StorageFolder dataFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-
-            IReadOnlyList<StorageFile> fileList = await dataFolder.GetFilesAsync();
-
-            foreach (StorageFile file in fileList)
+            try
             {
-                if (file.FileType.ToString() == ".txt")
-                    filenameList.Add(file.Name);
-            }
+                List<string> filenameList = new List<string>();
+                StorageFolder dataFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
 
-            for (int i = 0; i < filenameList.Count; i++)
+                IReadOnlyList<StorageFile> fileList = await dataFolder.GetFilesAsync();
+
+                foreach (StorageFile file in fileList)
+                {
+                    if (file.FileType.ToString() == ".txt")
+                        filenameList.Add(file.Name);
+                }
+
+                for (int i = 0; i < filenameList.Count; i++)
+                {
+                    Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                    Windows.Storage.StorageFile sampleFile = await storageFolder.GetFileAsync(filenameList[i]);
+
+                    string text = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
+
+                    temp_barcode = text.Substring(0, text.IndexOf(";"));
+                    temp_string = text.Substring(text.IndexOf(";") + 1);
+                    temp_name = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_detailname = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_vendor = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_origin = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_descr = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_type = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_quantity = Convert.ToInt32(temp_string);
+
+
+                    WeinList.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity));
+                }
+            }catch(Exception ex)
             {
-                Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-                Windows.Storage.StorageFile sampleFile = await storageFolder.GetFileAsync(filenameList[i]);
-
-                string text = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
-
-                temp_barcode = text.Substring(0, text.IndexOf(";"));
-                temp_string = text.Substring(text.IndexOf(";") + 1);
-                temp_name = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_detailname = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_vendor = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_origin = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_descr = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_type = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_quantity = Convert.ToInt32(temp_string);
-
-
-                WeinList.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity));
+                Show_Message("Es ist ein Fehler beim Öffnen der Dateien aufgetreten.\nBitte überprüfen Sie den Speicherort. \n\nFehler: " + ex.Message, "Fehler");
             }
         }
 
@@ -282,6 +230,35 @@ namespace Weinkeller
                 MainFrame.Navigate(typeof(WeinkellerPage));
             }
 
+        }
+
+        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+            string currentWindow = MainFrame.Content.GetType().ToString();
+
+            switch(currentWindow)
+            {
+                case "Weinkeller.Views.WeinkellerPage":
+                    NavMain.SelectedItem = NavMain.MenuItems[0];
+                    break;
+                case "Weinkeller.Views.DurchsuchenPage":
+                    NavMain.SelectedItem = NavMain.MenuItems[1];
+                    break;
+
+                case "Weinkeller.Views.HinzufuegenPage":
+                    NavMain.SelectedItem = NavMain.MenuItems[2];
+                    break;
+                    
+
+            }
+
+            
+        }
+
+        private async void Show_Message(string Message, string Titel)
+        {
+            var messageCheck = new MessageDialog(Message, Titel);
+            await messageCheck.ShowAsync();
         }
     }
 }

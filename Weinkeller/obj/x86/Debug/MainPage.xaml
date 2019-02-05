@@ -8,6 +8,11 @@
     x:Class="Weinkeller.MainPage"
     mc:Ignorable="d"
     Background="Black">
+    
+    <!--<Page.Resources>
+        <SolidColorBrush x:Key="NavigationViewSelectionIndicatorForeground" Color="Transparent" />
+    </Page.Resources>-->
+
     <NavigationView x:ConnectionId='2' x:Name="NavMain" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" IsBackButtonVisible="Collapsed" IsPaneToggleButtonVisible="False" PaneDisplayMode="LeftCompact"                                                                                                       IsSettingsVisible="True" RequestedTheme="Dark">
         <NavigationView.MenuItems>
             <NavigationViewItem Tag="weinkeller" Icon="Home" FontSize="36" Margin="0,0,0,10" HorizontalAlignment="Left" >
@@ -23,7 +28,7 @@
                 <TextBlock Tag="Nav_Abziehen"></TextBlock>
             </NavigationViewItem>
         </NavigationView.MenuItems>
-        <Frame x:ConnectionId='3' x:Name="MainFrame" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"></Frame>
+        <Frame x:ConnectionId='3' x:Name="MainFrame" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"                                ></Frame>
     </NavigationView>
 </Page>
 

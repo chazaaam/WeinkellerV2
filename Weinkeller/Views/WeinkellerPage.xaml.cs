@@ -52,57 +52,65 @@ namespace Weinkeller.Views
 
             string temp_string;
 
-            List<string> filenameList = new List<string>();
-            StorageFolder dataFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-
-            IReadOnlyList<StorageFile> fileList = await dataFolder.GetFilesAsync();
-
-            foreach (StorageFile file in fileList)
+            try
             {
-                if (file.FileType.ToString() == ".txt")
-                    filenameList.Add(file.Name);
-            }
-            if (filenameList.Count > 0)
-            {
-                for (int i = 0; i < filenameList.Count; i++)
+
+                List<string> filenameList = new List<string>();
+                StorageFolder dataFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+                IReadOnlyList<StorageFile> fileList = await dataFolder.GetFilesAsync();
+
+                foreach (StorageFile file in fileList)
                 {
+                    if (file.FileType.ToString() == ".txt")
+                        filenameList.Add(file.Name);
+                }
+                if (filenameList.Count > 0)
+                {
+                    for (int i = 0; i < filenameList.Count; i++)
+                    {
 
 
-                    Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-                    Windows.Storage.StorageFile sampleFile = await storageFolder.GetFileAsync(filenameList[i]);
+                        Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                        Windows.Storage.StorageFile sampleFile = await storageFolder.GetFileAsync(filenameList[i]);
 
-                    string text = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
+                        string text = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
 
-                    temp_barcode = text.Substring(0, text.IndexOf(";"));
-                    temp_string = text.Substring(text.IndexOf(";") + 1);
-                    temp_name = temp_string.Substring(0, temp_string.IndexOf(";"));
-                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                    temp_detailname = temp_string.Substring(0, temp_string.IndexOf(";"));
-                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                    temp_vendor = temp_string.Substring(0, temp_string.IndexOf(";"));
-                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                    temp_origin = temp_string.Substring(0, temp_string.IndexOf(";"));
-                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                    temp_descr = temp_string.Substring(0, temp_string.IndexOf(";"));
-                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                    temp_type = temp_string.Substring(0, temp_string.IndexOf(";"));
-                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                    temp_quantity = Convert.ToInt32(temp_string);
+                        temp_barcode = text.Substring(0, text.IndexOf(";"));
+                        temp_string = text.Substring(text.IndexOf(";") + 1);
+                        temp_name = temp_string.Substring(0, temp_string.IndexOf(";"));
+                        temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                        temp_detailname = temp_string.Substring(0, temp_string.IndexOf(";"));
+                        temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                        temp_vendor = temp_string.Substring(0, temp_string.IndexOf(";"));
+                        temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                        temp_origin = temp_string.Substring(0, temp_string.IndexOf(";"));
+                        temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                        temp_descr = temp_string.Substring(0, temp_string.IndexOf(";"));
+                        temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                        temp_type = temp_string.Substring(0, temp_string.IndexOf(";"));
+                        temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                        temp_quantity = Convert.ToInt32(temp_string);
 
-                    if (temp_quantity != 0)
-                        WeinList.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity));
-                    else
-                        WeinListEmpty.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity));
+                        if (temp_quantity != 0)
+                            WeinList.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity));
+                        else
+                            WeinListEmpty.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity));
+                    }
+
+                    currentWein = 0;
+                    Load_Wine(currentWein);
                 }
 
-                currentWein = 0;
-                Load_Wine(currentWein);
-            }
+                if (WeinList.Count == 0)
+                    grid_empty.Visibility = Visibility.Visible;
+                else
+                    grid_empty.Visibility = Visibility.Collapsed;
 
-            if (WeinList.Count == 0)
-                grid_empty.Visibility = Visibility.Visible;
-            else
-                grid_empty.Visibility = Visibility.Collapsed;
+            }catch(Exception ex)
+            {
+                Show_Message("Es ist ein Fehler beim Öffnen der Dateien aufgetreten.\nBitte überprüfen Sie den Speicherort. \n\nFehler: " + ex.Message, "Fehler");
+            }
         }
 
         private void Load_Wine(int wine_index)
@@ -187,18 +195,19 @@ namespace Weinkeller.Views
 
                 if (swipedDistance > 0)
                 {
-                    if (currentWein != WeinList.Count - 1)
-                        currentWein++;
-                    else
-                        currentWein = 0;
-                    Load_Wine(currentWein);
-                }
-                else
-                {
+
                     if (currentWein != 0)
                         currentWein--;
                     else
                         currentWein = WeinList.Count - 1;
+                    Load_Wine(currentWein);
+                }
+                else
+                {
+                    if (currentWein != WeinList.Count - 1)
+                        currentWein++;
+                    else
+                        currentWein = 0;
                     Load_Wine(currentWein);
                 }
                 _isSwiped = true;
@@ -229,7 +238,8 @@ namespace Weinkeller.Views
                 try
                 {
                     await file.CopyAsync(Windows.Storage.ApplicationData.Current.LocalFolder, WeinList[currentWein].getBarcode() + file.FileType.ToString(), NameCollisionOption.ReplaceExisting);
-                    Show_Message("Bild wurde erfolgreich gespeichert. Bitte Seite neu laden.\nWurde ein altes Bild überspeichert muss das Program neu gestartet werden.", "Speichern erfolgreich");
+                    Show_Message("Bild wurde erfolgreich gespeichert.\n\nWurde ein altes Bild überspeichert muss das Program neu gestartet werden.", "Speichern erfolgreich");
+                    Load_image(WeinList[currentWein].getBarcode());
                 }
                 catch(Exception ex)
                 {
@@ -242,6 +252,13 @@ namespace Weinkeller.Views
         {
             var messageCheck = new MessageDialog(Message, Titel);
             await messageCheck.ShowAsync();
+        }
+
+        private void Btn_amazon_Click(object sender, RoutedEventArgs e)
+        {
+            webView_amazon.Visibility = Visibility.Visible;
+            var uri = new Uri("https://www.amazon.de/s/ref=nb_sb_noss_2?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=" + Text_Name.Text);
+            webView_amazon.Navigate(uri);
         }
     }
 }

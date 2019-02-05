@@ -14,7 +14,7 @@
     </Page.Background>
 
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="50,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Angelegt Barcodes:" FontFamily="Georgia" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Angelegte Barcodes:" FontFamily="Georgia" Foreground="White"/>
         <TextBlock x:ConnectionId='2' x:Name="text_anzahl_barcodes" HorizontalAlignment="Left" Margin="660,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="_anzahl_barcodes_" FontFamily="Georgia" Foreground="White"/>
         <TextBlock HorizontalAlignment="Left" Margin="50,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Barcodes mit >0 Flaschen:" FontFamily="Georgia" Foreground="White"/>
         <TextBlock x:ConnectionId='3' x:Name="text_anzahl_barcodes_gt_zero" HorizontalAlignment="Left" Margin="660,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="_anzahl_>0_:" FontFamily="Georgia" Foreground="White"/>

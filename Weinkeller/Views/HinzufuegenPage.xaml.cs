@@ -46,7 +46,7 @@ namespace Weinkeller.Views
         {
             Load_data();
 
-            InputTextDialogAsync("Barcode scannen");
+            InputTextDialogAsync("Barcode scannen");          
         }
 
         private async void barcodeLookup()
@@ -57,88 +57,96 @@ namespace Weinkeller.Views
             // Überprüfen ob Barcode bereits vorhanden in eigener Datenbank
             int barcodeID = CheckDataBase(barcode);
 
+            if(barcode == "testwein")
+            {
+                test_wein();
+                return;
+            }
+
             if (barcodeID == -1)
             {
-                //string url = "http://opengtindb.org/?ean=" + barcode + "&cmd=query&queryid=400000000";
-                Uri url = new Uri("http://opengtindb.org/?ean=" + barcode + "&cmd=query&queryid=400000000");
-                //WebClient c = new WebClient();
-                var c = new HttpClient();
-                //byte[] response = await c.DownloadDataAsync(url);
-                //string result = Encoding.UTF7.GetString(response);
-
-                
-                byte[] response = await c.GetByteArrayAsync(url);
-
-                string result = Encoding.UTF7.GetString(response);
-
-                error = result.Substring(result.IndexOf("error=") + 6);
-                error = error.Substring(0, error.IndexOf("---"));
-                error = error.Replace("\n", String.Empty);
-
-                
-
-                if (error == "0")
-                    Show_Message("Operation war erfolgreich.\nDatenbank Inhalte wurden geladen.", "Datenbank Ergebniss");
-
-                if (error == "0")
+                try
                 {
-                    name = result.Substring(result.IndexOf("name=") + 5);
-                    name = name.Substring(0, name.IndexOf("detailname"));
-                    name = name.Replace("\n", String.Empty);
-                    detailname = result.Substring(result.IndexOf("detailname=") + 11);
-                    detailname = detailname.Substring(0, detailname.IndexOf("vendor"));
-                    detailname = detailname.Replace("\n", String.Empty);
-                    vendor = result.Substring(result.IndexOf("vendor=") + 7);
-                    vendor = vendor.Substring(0, vendor.IndexOf("maincat"));
-                    vendor = vendor.Replace("\n", String.Empty);
-                    origin = result.Substring(result.IndexOf("origin=") + 7);
-                    origin = origin.Substring(0, origin.IndexOf("descr"));
-                    origin = origin.Replace("\n", String.Empty);
-                    descr = result.Substring(result.IndexOf("descr=") + 6);
-                    descr = descr.Substring(0, descr.IndexOf("name_en"));
-                    descr = descr.Replace("\n", String.Empty);
-                    quantity = 1;
-                    typ = "";
 
 
-                    WeinList.Add(new Wein(barcode, name, detailname, vendor, origin, descr, typ, quantity));
+                    Uri url = new Uri("http://opengtindb.org/?ean=" + barcode + "&cmd=query&queryid=400000000");
+                    var c = new HttpClient();
+                    byte[] response = await c.GetByteArrayAsync(url);
+                    string result = Encoding.UTF7.GetString(response);
 
-                    Load_Wine(WeinList.Count - 1);
+                    error = result.Substring(result.IndexOf("error=") + 6);
+                    error = error.Substring(0, error.IndexOf("---"));
+                    error = error.Replace("\n", String.Empty);
+
+
+
+                    if (error == "0")
+                        Show_Message("Operation war erfolgreich.\nDatenbank Inhalte wurden geladen.", "Datenbank Ergebniss");
+
+                    if (error == "0")
+                    {
+                        name = result.Substring(result.IndexOf("name=") + 5);
+                        name = name.Substring(0, name.IndexOf("detailname"));
+                        name = name.Replace("\n", String.Empty);
+                        detailname = result.Substring(result.IndexOf("detailname=") + 11);
+                        detailname = detailname.Substring(0, detailname.IndexOf("vendor"));
+                        detailname = detailname.Replace("\n", String.Empty);
+                        vendor = result.Substring(result.IndexOf("vendor=") + 7);
+                        vendor = vendor.Substring(0, vendor.IndexOf("maincat"));
+                        vendor = vendor.Replace("\n", String.Empty);
+                        origin = result.Substring(result.IndexOf("origin=") + 7);
+                        origin = origin.Substring(0, origin.IndexOf("descr"));
+                        origin = origin.Replace("\n", String.Empty);
+                        descr = result.Substring(result.IndexOf("descr=") + 6);
+                        descr = descr.Substring(0, descr.IndexOf("name_en"));
+                        descr = descr.Replace("\n", String.Empty);
+                        quantity = 1;
+                        typ = "";
+
+
+                        WeinList.Add(new Wein(barcode, name, detailname, vendor, origin, descr, typ, quantity));
+
+                        Load_Wine(WeinList.Count - 1);
+                    }
+                    else
+                    {
+                        string datenbankergebniss = "Unbekannter Fehler";
+
+                        if (error == "1")
+                            datenbankergebniss = "Die EAN konnte nicht gefunden werden";
+                        else if (error == "2")
+                            datenbankergebniss = "Die EAN war fehlerhaft (Checksummenfehler)";
+                        else if (error == "3")
+                            datenbankergebniss = "Die EAN war fehlerhaft (ungültiges Format / fehlerhafte Ziffernanzahl)";
+                        else if (error == "4")
+                            datenbankergebniss = "Es wurde eine für interne Anwendungen reservierte EAN eingegeben (In-Store, Coupon etc.)";
+                        else if (error == "5")
+                            datenbankergebniss = "Zugriffslimit auf die Datenbank wurde überschritten";
+                        else if (error == "6")
+                            datenbankergebniss = "Es wurde kein Produktname angegeben";
+                        else if (error == "7")
+                            datenbankergebniss = "Der Produktname ist zu lang (max. 20 Zeichen)";
+                        else if (error == "8")
+                            datenbankergebniss = "Die Nummer für die Hauptkategorie fehlt oder liegt außerhalb des erlaubten Bereiches";
+                        else if (error == "9")
+                            datenbankergebniss = "Die Nummer für die zugehörige Unterkategorie fehlt oder liegt außerhalb des erlaubten Bereiches";
+                        else if (error == "10")
+                            datenbankergebniss = "Unerlaubte Daten im Herstellerfeld";
+                        else if (error == "11")
+                            datenbankergebniss = "Unerlaubte Daten im Beschreibungsfeld";
+                        else if (error == "12")
+                            datenbankergebniss = "Daten wurden bereits übertragen";
+                        else if (error == "13")
+                            datenbankergebniss = "Die UserID/queryid fehlt in der Abfrage oder ist für diese Funktion nicht freigeschaltet";
+                        else if (error == "14")
+                            datenbankergebniss = "Es wurde mit dem Parameter \"cmd\" ein unbekanntes Kommando übergeben";
+
+                        ManuellesAnlegenCheck(datenbankergebniss);
+                    }
                 }
-                else
+                catch(Exception ex)
                 {
-                    string datenbankergebniss = "Unbekannter Fehler";
-
-                    if (error == "1")
-                        datenbankergebniss = "Die EAN konnte nicht gefunden werden";
-                    else if (error == "2")
-                        datenbankergebniss = "Die EAN war fehlerhaft (Checksummenfehler)";
-                    else if (error == "3")
-                        datenbankergebniss = "Die EAN war fehlerhaft (ungültiges Format / fehlerhafte Ziffernanzahl)";
-                    else if (error == "4")
-                        datenbankergebniss = "Es wurde eine für interne Anwendungen reservierte EAN eingegeben (In-Store, Coupon etc.)";
-                    else if (error == "5")
-                        datenbankergebniss = "Zugriffslimit auf die Datenbank wurde überschritten";
-                    else if (error == "6")
-                        datenbankergebniss = "Es wurde kein Produktname angegeben";
-                    else if (error == "7")
-                        datenbankergebniss = "Der Produktname ist zu lang (max. 20 Zeichen)";
-                    else if (error == "8")
-                        datenbankergebniss = "Die Nummer für die Hauptkategorie fehlt oder liegt außerhalb des erlaubten Bereiches";
-                    else if (error == "9")
-                        datenbankergebniss = "Die Nummer für die zugehörige Unterkategorie fehlt oder liegt außerhalb des erlaubten Bereiches";
-                    else if (error == "10")
-                        datenbankergebniss = "Unerlaubte Daten im Herstellerfeld";
-                    else if (error == "11")
-                        datenbankergebniss = "Unerlaubte Daten im Beschreibungsfeld";
-                    else if (error == "12")
-                        datenbankergebniss = "Daten wurden bereits übertragen";
-                    else if (error == "13")
-                        datenbankergebniss = "Die UserID/queryid fehlt in der Abfrage oder ist für diese Funktion nicht freigeschaltet";
-                    else if (error == "14")
-                        datenbankergebniss = "Es wurde mit dem Parameter \"cmd\" ein unbekanntes Kommando übergeben";
-
-                    ManuellesAnlegenCheck(datenbankergebniss);
+                    ManuellesAnlegenCheck("Der Datenbankabruf konnte nicht ausgeführt werden.\nEventuell ist die Internetverbindung unterbrochen.\nFehler: "+ ex.Message);
                 }
             }
             else
@@ -162,16 +170,23 @@ namespace Weinkeller.Views
 
         private void Load_Wine(int wine_index)
         {
-            Text_Name.Text = WeinList[wine_index].getName();
-            if (Text_Name.Text == null || Text_Name.Text == "")
-                Text_Name.Text = WeinList[wine_index].getDetailname();
-            text_Vendor.Text = WeinList[wine_index].getVendor();
-            text_Origin.Text = WeinList[wine_index].getOrigin();
-            text_Descr.Text = WeinList[wine_index].getDescr();
-            text_Quantity.Text = WeinList[wine_index].getQuantity().ToString();
-            text_Barcode.Text = WeinList[wine_index].getBarcode();
-            text_Type.Text = WeinList[wine_index].getTyp();
-            text_Quantity.Text = WeinList[wine_index].getQuantity().ToString();
+            try
+            {
+                Text_Name.Text = WeinList[wine_index].getName();
+                if (Text_Name.Text == null || Text_Name.Text == "")
+                    Text_Name.Text = WeinList[wine_index].getDetailname();
+                text_Vendor.Text = WeinList[wine_index].getVendor();
+                text_Origin.Text = WeinList[wine_index].getOrigin();
+                text_Descr.Text = WeinList[wine_index].getDescr();
+                text_Quantity.Text = WeinList[wine_index].getQuantity().ToString();
+                text_Barcode.Text = WeinList[wine_index].getBarcode();
+                text_Type.Text = WeinList[wine_index].getTyp();
+                text_Quantity.Text = WeinList[wine_index].getQuantity().ToString();
+            }
+            catch(Exception ex)
+            {
+                Show_Message("Die Weindaten konnte nicht geladen werden. \n\n Bitte überprüfen und ggf. löschen Sie die angelegten Barcodes.\nFehler" + ex.Message, "Fehler");
+            }
         }
 
         private async void ManuellesAnlegenCheck(string datenbankergebniss)
@@ -199,7 +214,6 @@ namespace Weinkeller.Views
 
         private int CheckDataBase(string e_barcode)
         {
-
             for (int i = 0; i < WeinList.Count; i++)
             {
                 if (WeinList[i].getBarcode() == e_barcode)
@@ -218,7 +232,14 @@ namespace Weinkeller.Views
             origin = text_Origin.Text;
             descr = text_Descr.Text;
             typ = text_Type.Text;
-            quantity = Convert.ToInt32(text_Quantity.Text);
+            try
+            {
+                quantity = Convert.ToInt32(text_Quantity.Text);
+            }catch(Exception ex)
+            {
+                Show_Message("Fehler: " + ex.Message, "Ungültige Eingabe bei Anzahl");
+                return;
+            }
 
             CreateFile();
 
@@ -265,7 +286,7 @@ namespace Weinkeller.Views
 
                 if (commandChosen.Label == "Zur Eingabe zurückkehren")
                 {
-                    // 
+                    ;
                 }
                 else if (commandChosen.Label == "Zur Hauptseite zurückkehren")
                 {
@@ -279,14 +300,6 @@ namespace Weinkeller.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             test_wein();
-        }
-
-        private async void test_open()
-        {
-            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            Windows.Storage.StorageFile sampleFile = await storageFolder.GetFileAsync("sample.txt");
-
-            string text = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
         }
 
         private void test_wein()
@@ -347,44 +360,50 @@ namespace Weinkeller.Views
 
             string temp_string;
 
-            List<string> filenameList = new List<string>();
-            StorageFolder dataFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-
-            IReadOnlyList<StorageFile> fileList = await dataFolder.GetFilesAsync();
-
-            foreach (StorageFile file in fileList)
+            try
             {
-                if (file.FileType.ToString() == ".txt")
-                    filenameList.Add(file.Name);
-            }
+                List<string> filenameList = new List<string>();
+                StorageFolder dataFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
 
-            for (int i = 0; i < filenameList.Count; i++)
+                IReadOnlyList<StorageFile> fileList = await dataFolder.GetFilesAsync();
+
+                foreach (StorageFile file in fileList)
+                {
+                    if (file.FileType.ToString() == ".txt")
+                        filenameList.Add(file.Name);
+                }
+
+                for (int i = 0; i < filenameList.Count; i++)
+                {
+
+
+                    Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                    Windows.Storage.StorageFile sampleFile = await storageFolder.GetFileAsync(filenameList[i]);
+
+                    string text = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
+
+                    temp_barcode = text.Substring(0, text.IndexOf(";"));
+                    temp_string = text.Substring(text.IndexOf(";") + 1);
+                    temp_name = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_detailname = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_vendor = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_origin = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_descr = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_type = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_quantity = Convert.ToInt32(temp_string);
+
+
+                    WeinList.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity));
+                }
+            }catch(Exception ex)
             {
-
-
-                Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-                Windows.Storage.StorageFile sampleFile = await storageFolder.GetFileAsync(filenameList[i]);
-
-                string text = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
-
-                temp_barcode = text.Substring(0, text.IndexOf(";"));
-                temp_string = text.Substring(text.IndexOf(";") + 1);
-                temp_name = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_detailname = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_vendor = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_origin = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_descr = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_type = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_quantity = Convert.ToInt32(temp_string);
-
-
-                WeinList.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity));
+                Show_Message("Es ist ein Fehler beim Öffnen der Dateien aufgetreten.\nBitte überprüfen Sie den Speicherort. \n\nFehler: " + ex.Message, "Fehler");
             }
         }
     }

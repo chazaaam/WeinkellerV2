@@ -57,76 +57,78 @@ namespace Weinkeller.Views
             int temp_quantity;
 
             string temp_string;
-
-            List<string> filenameList = new List<string>();
-            StorageFolder dataFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-
-            IReadOnlyList<StorageFile> fileList = await dataFolder.GetFilesAsync();
-
-            foreach (StorageFile file in fileList)
+            try
             {
-                if (file.FileType.ToString() == ".txt")
-                    filenameList.Add(file.Name);
-            }
+                List<string> filenameList = new List<string>();
+                StorageFolder dataFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
 
-            for (int i = 0; i < filenameList.Count; i++)
-            {
+                IReadOnlyList<StorageFile> fileList = await dataFolder.GetFilesAsync();
 
-
-                Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-                Windows.Storage.StorageFile sampleFile = await storageFolder.GetFileAsync(filenameList[i]);
-
-                string text = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
-
-                temp_barcode = text.Substring(0, text.IndexOf(";"));
-                temp_string = text.Substring(text.IndexOf(";") + 1);
-                temp_name = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_detailname = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_vendor = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_origin = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_descr = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_type = temp_string.Substring(0, temp_string.IndexOf(";"));
-                temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                temp_quantity = Convert.ToInt32(temp_string);
-
-                bool quantity_check = false;
-
-                try
+                foreach (StorageFile file in fileList)
                 {
-                    if (text_quantity.Text != "")
-                    {
-                        quantity_check = ((cmb_quantity.SelectedIndex == 0 && (Convert.ToInt32(text_quantity.Text) < temp_quantity)) ||
-                                                (cmb_quantity.SelectedIndex == 1 && (Convert.ToInt32(text_quantity.Text) == temp_quantity)) ||
-                                                (cmb_quantity.SelectedIndex == 2 && (Convert.ToInt32(text_quantity.Text) > temp_quantity)));
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Show_Message("Anzahl ist keine Zahl\n" + ex.Message, "Ungültige Eingabe");
-                    return;
+                    if (file.FileType.ToString() == ".txt")
+                        filenameList.Add(file.Name);
                 }
 
-
-                if (Text_Name.Text == "" || temp_name.Contains(Text_Name.Text) || temp_detailname.Contains(Text_Name.Text))
+                for (int i = 0; i < filenameList.Count; i++)
                 {
-                    if (text_quantity.Text == "" || quantity_check)
+
+
+                    Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                    Windows.Storage.StorageFile sampleFile = await storageFolder.GetFileAsync(filenameList[i]);
+
+                    string text = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
+
+                    temp_barcode = text.Substring(0, text.IndexOf(";"));
+                    temp_string = text.Substring(text.IndexOf(";") + 1);
+                    temp_name = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_detailname = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_vendor = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_origin = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_descr = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_type = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_quantity = Convert.ToInt32(temp_string);
+
+                    bool quantity_check = false;
+
+                    try
                     {
-                        if (text_origin.Text == "" || temp_origin.Contains(text_origin.Text))
+                        if (text_quantity.Text != "")
                         {
-                            if (text_vendor.Text == "" || temp_vendor.Contains(text_vendor.Text))
+                            quantity_check = ((cmb_quantity.SelectedIndex == 0 && (Convert.ToInt32(text_quantity.Text) < temp_quantity)) ||
+                                                    (cmb_quantity.SelectedIndex == 1 && (Convert.ToInt32(text_quantity.Text) == temp_quantity)) ||
+                                                    (cmb_quantity.SelectedIndex == 2 && (Convert.ToInt32(text_quantity.Text) > temp_quantity)));
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Show_Message("Anzahl ist keine Zahl\n" + ex.Message, "Ungültige Eingabe");
+                        return;
+                    }
+
+
+                    if (Text_Name.Text == "" || temp_name.Contains(Text_Name.Text) || temp_detailname.Contains(Text_Name.Text))
+                    {
+                        if (text_quantity.Text == "" || quantity_check)
+                        {
+                            if (text_origin.Text == "" || temp_origin.Contains(text_origin.Text))
                             {
-                                if (text_descr.Text == "" || temp_descr.Contains(text_descr.Text))
+                                if (text_vendor.Text == "" || temp_vendor.Contains(text_vendor.Text))
                                 {
-                                    if (text_type.Text == "" || temp_type.Contains(text_type.Text))
+                                    if (text_descr.Text == "" || temp_descr.Contains(text_descr.Text))
                                     {
-                                        if (barcode == "" || barcode == null || temp_barcode == barcode)
+                                        if (text_type.Text == "" || temp_type.Contains(text_type.Text))
                                         {
-                                            WeinList.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity));
+                                            if (barcode == "" || barcode == null || temp_barcode == barcode)
+                                            {
+                                                WeinList.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity));
+                                            }
                                         }
                                     }
                                 }
@@ -134,6 +136,11 @@ namespace Weinkeller.Views
                         }
                     }
                 }
+
+            }
+            catch(Exception ex)
+            {
+                Show_Message("Es ist ein Fehler beim Öffnen der Dateien aufgetreten.\nBitte überprüfen Sie den Speicherort. \n\nFehler: " + ex.Message, "Fehler");
             }
 
             barcode = "";
@@ -244,18 +251,18 @@ namespace Weinkeller.Views
 
                 if (swipedDistance > 0)
                 {
-                    if (currentWein != WeinList.Count - 1)
-                        currentWein++;
-                    else
-                        currentWein = 0;
-                    Load_Wine(currentWein);
-                }
-                else
-                {
                     if (currentWein != 0)
                         currentWein--;
                     else
                         currentWein = WeinList.Count - 1;
+                    Load_Wine(currentWein);
+                }
+                else
+                {
+                    if (currentWein != WeinList.Count - 1)
+                        currentWein++;
+                    else
+                        currentWein = 0;
                     Load_Wine(currentWein);
                 }
                 _isSwiped = true;

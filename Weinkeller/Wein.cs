@@ -98,10 +98,16 @@ namespace Weinkeller
             quantity++;
         }
 
-        public void removeBottle()
+        public bool removeBottle()
         {
             if (quantity > 0)
+            {
                 quantity--;
+                return (true);
+            }else
+            {
+                return (false);
+            }
         }
     }
 }

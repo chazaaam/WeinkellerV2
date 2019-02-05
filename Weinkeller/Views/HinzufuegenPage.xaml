@@ -38,8 +38,6 @@
         </Grid>
         <Button x:Name="btn_save" Content="Speichern" HorizontalAlignment="Left" Margin="1510,853,0,0" VerticalAlignment="Top" Height="153" Width="313" FontSize="36" Click="Btn_save_Click" Background="#FF878686" RequestedTheme="Dark" Foreground="Black"/>
         <Button x:Name="btn_scan" Content="Barcode scannen" HorizontalAlignment="Left" Margin="1510,628,0,0" VerticalAlignment="Top" Height="153" Width="313" FontSize="36" Click="Btn_scan_Click" Background="#FF878686" RequestedTheme="Dark" Foreground="Black"/>
-
-        <Button Content="Test Wein Anlegen" HorizontalAlignment="Left" Margin="1540,87,0,0" VerticalAlignment="Top" Height="111" Width="253" Click="Button_Click" Background="#FF878686" RequestedTheme="Dark" Foreground="Black"/>
         <Grid x:Name="ScanningGrid" HorizontalAlignment="Center" Height="1080" Margin="0,0,0,0" VerticalAlignment="Center" Width="1920" Background="#D8C3C3C3" Visibility="Collapsed">
             <TextBlock x:Name="text_scannedBarcode" HorizontalAlignment="Center" Margin="0,435,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="_ScannerStatus_" FontFamily="Georgia"/>
             <Button x:Name="btn_scanner_stop" Content="Scannen abbrechen" HorizontalAlignment="Center" Margin="0,570,0,0" VerticalAlignment="Top" Height="153" Width="366" FontSize="36" Click="Btn_save_Click" Background="#FF5F5E5E"/>
