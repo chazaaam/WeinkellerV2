@@ -273,6 +273,20 @@ namespace Weinkeller.Views
         {
             _isSwiped = false;
         }
+
+        private void Btn_amazon_Click(object sender, RoutedEventArgs e)
+        {
+            if (webView_amazon.Visibility == Visibility.Collapsed)
+            {
+                webView_amazon.Visibility = Visibility.Visible;
+                var uri = new Uri("https://www.amazon.de/s/ref=nb_sb_noss_2?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=" + Text_s_Name.Text);
+                webView_amazon.Navigate(uri);
+            }
+            else
+            {
+                webView_amazon.Visibility = Visibility.Collapsed;
+            }
+        }
     }
 
 }

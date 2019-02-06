@@ -150,6 +150,7 @@
     <None Include="Weinkeller_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Amazon.png" />
     <Content Include="Assets\kein-bild-vorhanden.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />

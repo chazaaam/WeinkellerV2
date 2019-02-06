@@ -204,6 +204,7 @@ namespace Weinkeller.Views
             {
                 // Auf manuelles Anlegen Seite wechseln
                 text_Barcode.Text = barcode;
+                text_Quantity.Text = "1";
             }
             else if (commandChosen.Label == "Nein")
             {
@@ -232,17 +233,27 @@ namespace Weinkeller.Views
             origin = text_Origin.Text;
             descr = text_Descr.Text;
             typ = text_Type.Text;
-            try
+
+            string barcode_check = text_Barcode.Text.Replace(" ", "");
+
+            if (barcode_check.Length > 0)
             {
-                quantity = Convert.ToInt32(text_Quantity.Text);
-            }catch(Exception ex)
-            {
-                Show_Message("Fehler: " + ex.Message, "Ungültige Eingabe bei Anzahl");
-                return;
+                try
+                {
+                    quantity = Convert.ToInt32(text_Quantity.Text);
+                }
+                catch (Exception ex)
+                {
+                    Show_Message("Fehler: " + ex.Message, "Ungültige Eingabe bei Anzahl");
+                    return;
+                }
+
+                CreateFile();
             }
-
-            CreateFile();
-
+            else
+            {
+                Show_Message("Es wurde kein Barcode angegeben.\n\nZum anlegen eines Produkts muss ein Barcode angegeben werden.\nDer eingegebene Barcode muss nicht ein reeler Barcode sein.", "Fehler");
+            }
         }
 
         private async void CreateFile()

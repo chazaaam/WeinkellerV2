@@ -18,7 +18,7 @@
             <TextBox x:Name="Text_Name" HorizontalAlignment="Left" Margin="50,-10,0,0" Text="" VerticalAlignment="Top" Width="869" FontSize="36" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" FontWeight="Bold" FontFamily="Georgia" Background="#99FFFFFF"/>
             <TextBlock x:Name="text_Barcode" HorizontalAlignment="Left" Margin="979,2,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Georgia" Width="251" Padding="10,0,6,6" Foreground="White"/>
             <TextBlock HorizontalAlignment="Left" Margin="50,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Flaschen auf Lager:" FontFamily="Georgia" Foreground="White"/>
-            <TextBox x:Name="text_Type" HorizontalAlignment="Left" Margin="476,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" FontFamily="Georgia" MinWidth="754" Background="#99FFFFFF"/>
+            <TextBox x:Name="text_Type" HorizontalAlignment="Left" Margin="476,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="Rotwein" FontFamily="Georgia" MinWidth="754" Background="#99FFFFFF"/>
             <TextBlock HorizontalAlignment="Left" Margin="50,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Flaschentyp:" FontFamily="Georgia" Foreground="White"/>
             <TextBox x:Name="text_Quantity" HorizontalAlignment="Left" Margin="476,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" FontFamily="Georgia" MinWidth="754" Background="#99FFFFFF"/>
             <TextBlock HorizontalAlignment="Left" Margin="50,423,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Verkäufer:" FontFamily="Georgia" Foreground="White"/>

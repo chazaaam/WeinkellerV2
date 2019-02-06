@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-02-05T14:41:20.562</Modified>
+      <Modified>2019-02-06T12:37:04.060</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Weinkeller.exe">
       <PackagePath>entrypoint\Weinkeller.exe</PackagePath>
-      <Modified>2019-02-05T14:41:19.442</Modified>
+      <Modified>2019-02-06T12:37:02.810</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\.nuget\packages\microsoft.ui.xaml\2.1.181217001-prerelease\runtimes\win10-x86\native\Microsoft.UI.Xaml.dll">
       <PackagePath>Microsoft.UI.Xaml.dll</PackagePath>
@@ -57,6 +57,10 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.17763.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2018-10-23T00:33:40.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Amazon.png">
+      <PackagePath>Assets\Amazon.png</PackagePath>
+      <Modified>2019-02-06T09:20:26.219</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\kein-bild-vorhanden.png">
       <PackagePath>Assets\kein-bild-vorhanden.png</PackagePath>
@@ -309,31 +313,31 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Weinkeller.xr.xml">
       <PackagePath>Weinkeller.xr.xml</PackagePath>
-      <Modified>2019-02-05T14:41:18.964</Modified>
+      <Modified>2019-02-06T12:10:29.709</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2019-02-05T14:41:19.020</Modified>
+      <Modified>2019-02-06T12:37:02.390</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2019-02-05T14:41:19.022</Modified>
+      <Modified>2019-02-06T12:37:02.393</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Views\DurchsuchenPage.xbf">
       <PackagePath>Views\DurchsuchenPage.xbf</PackagePath>
-      <Modified>2019-02-05T14:41:19.002</Modified>
+      <Modified>2019-02-06T12:37:02.359</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Views\HinzufuegenPage.xbf">
       <PackagePath>Views\HinzufuegenPage.xbf</PackagePath>
-      <Modified>2019-02-05T14:41:19.006</Modified>
+      <Modified>2019-02-06T12:37:02.363</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Views\SettingsPage.xbf">
       <PackagePath>Views\SettingsPage.xbf</PackagePath>
-      <Modified>2019-02-05T14:41:19.009</Modified>
+      <Modified>2019-02-06T12:37:02.373</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Views\WeinkellerPage.xbf">
       <PackagePath>Views\WeinkellerPage.xbf</PackagePath>
-      <Modified>2019-02-05T14:41:19.020</Modified>
+      <Modified>2019-02-06T12:37:02.390</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17763.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -345,11 +349,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2019-02-04T09:49:26.056</Modified>
+      <Modified>2019-02-06T09:24:16.117</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Core\Weinkeller.exe">
       <PackagePath>Weinkeller.exe</PackagePath>
-      <Modified>2019-02-05T14:41:20.548</Modified>
+      <Modified>2019-02-06T12:37:04.044</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
