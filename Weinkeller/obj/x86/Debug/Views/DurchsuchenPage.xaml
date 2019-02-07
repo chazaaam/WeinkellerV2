@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Custom="using:Microsoft.UI.Xaml.Controls"
     x:Class="Weinkeller.Views.DurchsuchenPage"
-    mc:Ignorable="d"                      RequestedTheme="Light">
+    mc:Ignorable="d"                      RequestedTheme="Light" Width="1880">
     <Page.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="Black"/>
@@ -44,7 +44,7 @@
         </Grid>
         <Button x:ConnectionId='4' x:Name="btn_scan" Content="Barcode scannen" HorizontalAlignment="Left" Margin="1510,628,0,0" VerticalAlignment="Top" Height="153" Width="313" FontSize="36"                        Background="#FF878686" RequestedTheme="Dark" Foreground="Black"/>
         <Button x:ConnectionId='5' x:Name="btn_search" Content="Suchen" HorizontalAlignment="Left" Margin="1510,853,0,0" VerticalAlignment="Top" Height="153" Width="313" FontSize="36"                          Background="#FF878686" RequestedTheme="Dark" Foreground="Black"/>
-        <Grid x:ConnectionId='6' x:Name="grid_search" HorizontalAlignment="Left" Height="1070" Margin="0,0,0,0" VerticalAlignment="Top" Width="1910" Visibility="Collapsed">
+        <Grid x:ConnectionId='6' x:Name="grid_search" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Visibility="Visible">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>

@@ -271,7 +271,7 @@ namespace Weinkeller.Views
             else
             {
                 webView_amazon.Visibility = Visibility.Collapsed;
-            }
+            }          
         }
     }
 }

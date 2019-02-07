@@ -6,8 +6,8 @@
       <RootProperty Name="Background" />
       <RootProperty Name="Content" />
       <RootProperty Name="RequestedTheme" />
-      <RootProperty Name="Height" />
       <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
       <RootEvent Name="Loaded" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.NavigationView">
