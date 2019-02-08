@@ -315,7 +315,7 @@ namespace Weinkeller.Views
 
         private void test_wein()
         {
-            barcode = "4003301029387";
+            barcode = "4003301029386";//4003301029387
             name = "test Wein";
             detailname = "test Wein zum testen der Speicherung";
             vendor = "Test Inc.";

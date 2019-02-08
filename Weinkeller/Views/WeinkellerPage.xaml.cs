@@ -117,6 +117,9 @@ namespace Weinkeller.Views
             {
                 Show_Message("Es ist ein Fehler beim Öffnen der Dateien aufgetreten.\nBitte überprüfen Sie den Speicherort. \n\nFehler: " + ex.Message, "Fehler");
             }
+
+
+            Create_html();
         }
 
         private void Load_Wine(int wine_index)
@@ -272,6 +275,37 @@ namespace Weinkeller.Views
             {
                 webView_amazon.Visibility = Visibility.Collapsed;
             }          
+        }
+
+        private async void Create_html()
+        {
+            //await ApplicationData.Current.LocalFolder.CreateFolderAsync("WebPage");
+
+            string data_string = @"<head><title>Weinkeller</title><!-- Bootstrap Core CSS --><link href=""WebPage/css/bootstrap.min.css"" rel=""stylesheet""><!--Custom CSS--><link href=""WebPage/css/business-casual.css"" rel=""stylesheet""></head><body><div class=""brand"">Weinkeller</div> ";
+            for (int i = 0; i < WeinList.Count(); i++)
+            { 
+                data_string = data_string + Fill_html(WeinList[i].getName(), WeinList[i].getBarcode(), WeinList[i].getTyp(), WeinList[i].getQuantity().ToString(), WeinList[i].getVendor(), WeinList[i].getOrigin(), WeinList[i].getDescr());
+            }
+
+            data_string = data_string + @"</div></body></html>";
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync("test" + ".html", Windows.Storage.CreationCollisionOption.ReplaceExisting);
+            await Windows.Storage.FileIO.WriteTextAsync(sampleFile, data_string);
+        }
+
+        private string Fill_html(string name, string barcode, string typ, string quantity, string vendor, string origin, string desc)
+        {
+            string erg;
+
+            erg = @"<div class=""row""><div class=""box""><div class=""col-lg-12""><img class=""img-left"" src="""+barcode+ @".jpg"" alt = """" ><hr>";
+            erg = erg + @"<h2 class=""intro-text text-center"">" + name + @"</h2><hr>";
+            erg = erg + @"<p>Flaschentyp: "+ typ +@"</p>";
+            erg = erg + @"<p>Flaschen auf Lager: " + quantity + @"</p>";
+            erg = erg + @"<p>Verkäufer: " + vendor + @"</p>";
+            erg = erg + @"<p>Herkunft: " + origin + @"</p>";
+            erg = erg + @"<p>Beschreibung: " + desc + @"</p>";
+            erg = erg + @"</div></div></div>";
+            return (erg);
         }
     }
 }

@@ -15,7 +15,7 @@
     </Page.Background>
 
     <Grid x:Name="MainGrid" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
-        <Image x:Name="WineImage" HorizontalAlignment="Right" Margin="0,48,20,0" VerticalAlignment="Top" Source="/Assets/kein-bild-vorhanden.png" MaxWidth="548" FocusVisualPrimaryBrush="Black"/>
+        <Image x:Name="WineImage" HorizontalAlignment="Center" Margin="1300,48,0,0" VerticalAlignment="Top" Source="/Assets/kein-bild-vorhanden.png" MaxWidth="548" FocusVisualPrimaryBrush="Black"/>
         <Grid x:Name="InfoGrid" HorizontalAlignment="Left" Height="980" VerticalAlignment="Top" Width="1298" Margin="50,50,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="477*"/>

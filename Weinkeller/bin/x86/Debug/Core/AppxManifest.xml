@@ -7,7 +7,7 @@
 
     Weitere Informationen zu Paketmanifestdateien finden Sie unter http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="41c87e3c-f0e7-487c-a920-ddfa96e663d6" Publisher="CN=Dillinger" Version="1.0.0.0" ProcessorArchitecture="x86" />
+  <Identity Name="Weinkeller" Publisher="CN=Dillinger" Version="1.0.0.0" ProcessorArchitecture="x86" />
   <mp:PhoneIdentity PhoneProductId="41c87e3c-f0e7-487c-a920-ddfa96e663d6" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Weinkeller</DisplayName>

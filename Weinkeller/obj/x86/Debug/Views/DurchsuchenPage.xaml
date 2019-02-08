@@ -51,7 +51,7 @@
                     <GradientStop Color="#FF230101" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <Image x:ConnectionId='7' x:Name="WineImage" HorizontalAlignment="Right" Height="980" Margin="0,50,80,0" VerticalAlignment="Top" Width="480" Source="/Assets/kein-bild-vorhanden.png"/>
+            <Image x:ConnectionId='7' x:Name="WineImage" HorizontalAlignment="Center" Height="980" Margin="1300,48,0,0" VerticalAlignment="Top" Width="480" Source="/Assets/kein-bild-vorhanden.png"/>
             <Grid x:ConnectionId='8' x:Name="InfoGrid2" HorizontalAlignment="Left" Height="980" VerticalAlignment="Top" Width="1298" Margin="50,50,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="477*"/>

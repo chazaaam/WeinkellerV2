@@ -211,7 +211,6 @@ C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Weinkeller.
 C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\resources.pri
 C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\AppxManifest.xml
 C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Core\AppxManifest.xml
-C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Core\ForBundle\AppxManifest.xml
 C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Core\Weinkeller.exe
 C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Weinkeller.build.appxrecipe
 C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Microsoft.UI.Xaml.dll
