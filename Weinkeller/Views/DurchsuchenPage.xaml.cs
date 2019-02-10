@@ -56,6 +56,8 @@ namespace Weinkeller.Views
             string temp_type;
             int temp_quantity;
 
+            List<string> temp_location = new List<string>();
+
             string temp_string;
             try
             {
@@ -92,8 +94,14 @@ namespace Weinkeller.Views
                     temp_descr = temp_string.Substring(0, temp_string.IndexOf(";"));
                     temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
                     temp_type = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_quantity = Convert.ToInt32(temp_string.Substring(0, temp_string.IndexOf(";")));
                     temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                    temp_quantity = Convert.ToInt32(temp_string);
+
+                    for (int j = 0; j < temp_quantity; i++)
+                    {
+                        temp_location.Add(temp_string.Substring(0, temp_string.IndexOf(";")));
+                        temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    }
 
                     bool quantity_check = false;
 
@@ -173,6 +181,14 @@ namespace Weinkeller.Views
             text_s_barcode.Text = WeinList[currentWein].getBarcode();
             text_s_Type.Text = WeinList[currentWein].getBarcode();
             text_s_Quantity.Text = WeinList[currentWein].getQuantity().ToString();
+
+            string temp_location_string = "";
+
+            for (int j = 0; j < WeinList[currentWein].getQuantity(); j++)
+            {
+                temp_location_string = temp_location_string + WeinList[currentWein].getLocation()[j] + "; ";
+            }
+            text_s_Location.Text = temp_location_string;
 
             Load_image(WeinList[currentWein].getBarcode());
             Load_page(currentWein);

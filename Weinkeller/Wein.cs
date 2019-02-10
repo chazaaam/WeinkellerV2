@@ -16,6 +16,7 @@ namespace Weinkeller
         public string descr;
         public int quantity;
         public string type;
+        public List<string> location;
 
         public Wein()
         {
@@ -27,9 +28,10 @@ namespace Weinkeller
             descr = "";
             type = "";
             quantity = 0;
+            location = new List<string>();
         }
 
-        public Wein(string e_barcode, string e_name, string e_detailname, string e_vendor, string e_origin, string e_descr, string e_type, int e_quantity)
+        public Wein(string e_barcode, string e_name, string e_detailname, string e_vendor, string e_origin, string e_descr, string e_type, int e_quantity, List<string> e_location)
         {
             barcode = e_barcode;
             name = e_name;
@@ -39,9 +41,10 @@ namespace Weinkeller
             descr = e_descr;
             type = e_type;
             quantity = e_quantity;
+            location = e_location;
         }
 
-        public void setData(string e_barcode, string e_name, string e_detailname, string e_vendor, string e_origin, string e_descr, string e_type, int e_quantity)
+        public void setData(string e_barcode, string e_name, string e_detailname, string e_vendor, string e_origin, string e_descr, string e_type, int e_quantity, List<string> e_location)
         {
             barcode = e_barcode;
             name = e_name;
@@ -51,6 +54,7 @@ namespace Weinkeller
             descr = e_descr;
             type = e_type;
             quantity = e_quantity;
+            location = e_location;
         }
 
         public string getBarcode()
@@ -91,6 +95,11 @@ namespace Weinkeller
         public int getQuantity()
         {
             return quantity;
+        }
+
+        public List<string> getLocation()
+        {
+            return location;
         }
 
         public void addBottle()

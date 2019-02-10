@@ -58,6 +58,7 @@ namespace Weinkeller.Views
             string temp_descr;
             string temp_type;
             int temp_quantity;
+            List<string> temp_location;
 
             string temp_string;
 
@@ -100,13 +101,19 @@ namespace Weinkeller.Views
                     temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
                     temp_type = temp_string.Substring(0, temp_string.IndexOf(";"));
                     temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                    temp_quantity = Convert.ToInt32(temp_string);
-
+                    temp_quantity = Convert.ToInt32(temp_string.Substring(0, temp_string.IndexOf(";")));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_location = new List<string>();
+                    for (int j = 0; i < temp_quantity; i++)
+                    {
+                        temp_location.Add(temp_string.Substring(0, temp_string.IndexOf(";")));
+                        temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    }
 
                     if (temp_quantity != 0)
-                        WeinList.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity));
+                        WeinList.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity, temp_location));
                     else
-                        WeinListEmpty.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity));
+                        WeinListEmpty.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity, temp_location));
 
                     count_flaschen += temp_quantity;
                 }
@@ -258,7 +265,8 @@ namespace Weinkeller.Views
 
             if (await dialog.ShowAsync() == ContentDialogResult.Primary)
             {
-                Wein tempwein = new Wein(inputTextBox.Text, "tempwein", "tempwein", "tempwein", "tempwein", "tempwein", "tempwein", 1);
+                List<string> templocation = new List<string>();
+                Wein tempwein = new Wein(inputTextBox.Text, "tempwein", "tempwein", "tempwein", "tempwein", "tempwein", "tempwein", 1, templocation);
                 portListe.Add(tempwein);
                 Delete_Data(portListe);
             }

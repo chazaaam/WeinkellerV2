@@ -132,7 +132,7 @@ namespace Weinkeller
 
                     if (removed)
                     {
-                        CreateFile(WeinList[i].getBarcode(), WeinList[i].getName(), WeinList[i].getDetailname(), WeinList[i].getVendor(), WeinList[i].getOrigin(), WeinList[i].getDescr(), WeinList[i].getTyp(), WeinList[i].getQuantity());
+                        CreateFile(WeinList[i].getBarcode(), WeinList[i].getName(), WeinList[i].getDetailname(), WeinList[i].getVendor(), WeinList[i].getOrigin(), WeinList[i].getDescr(), WeinList[i].getTyp(), WeinList[i].getQuantity(), WeinList[i].getLocation());
                         return;
                     }
                     else
@@ -159,6 +159,7 @@ namespace Weinkeller
             string temp_type;
             int temp_quantity;
             string temp_string;
+            List<string> temp_location;
 
             try
             {
@@ -194,10 +195,16 @@ namespace Weinkeller
                     temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
                     temp_type = temp_string.Substring(0, temp_string.IndexOf(";"));
                     temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                    temp_quantity = Convert.ToInt32(temp_string);
+                    temp_quantity = Convert.ToInt32(temp_string.Substring(0, temp_string.IndexOf(";")));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    temp_location = new List<string>();
+                    for (int j = 0; i < temp_quantity; i++)
+                    {
+                        temp_location.Add(temp_string.Substring(0, temp_string.IndexOf(";")));
+                        temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                    }
 
-
-                    WeinList.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity));
+                    WeinList.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity, temp_location));
                 }
             }catch(Exception ex)
             {
@@ -205,11 +212,15 @@ namespace Weinkeller
             }
         }
 
-        private async void CreateFile(string barcode, string name, string detailname, string vendor, string origin, string descr, string typ, int quantity)
+        private async void CreateFile(string barcode, string name, string detailname, string vendor, string origin, string descr, string typ, int quantity, List<string> location)
         {
             try
             {
-                string data_string = barcode + ";" + name + ";" + detailname + ";" + vendor + ";" + origin + ";" + descr + ";" + typ + ";" + quantity.ToString();
+                string data_string = barcode + ";" + name + ";" + detailname + ";" + vendor + ";" + origin + ";" + descr + ";" + typ + ";" + quantity.ToString() + ";";
+                for (int j = 0; j < quantity; j++)
+                {
+                    data_string = data_string + location[j] + ";";
+                }
                 Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
                 Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync(barcode + ".txt", Windows.Storage.CreationCollisionOption.ReplaceExisting);
                 await Windows.Storage.FileIO.WriteTextAsync(sampleFile, data_string);

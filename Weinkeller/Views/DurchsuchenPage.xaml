@@ -26,8 +26,10 @@
             <TextBox x:Name="text_vendor" HorizontalAlignment="Left" Margin="491,441,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" Width="754" FontFamily="Georgia" Background="#99FFFFFF"/>
             <TextBlock HorizontalAlignment="Left" Margin="50,587,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Herkunft:" FontFamily="Georgia" Foreground="White"/>
             <TextBox x:Name="text_origin" HorizontalAlignment="Left" Margin="491,589,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" Width="754" FontFamily="Georgia" Background="#99FFFFFF"/>
-            <TextBlock HorizontalAlignment="Left" Margin="50,728,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Beschreibung:" FontFamily="Georgia" Foreground="White"/>
-            <TextBox x:Name="text_descr" HorizontalAlignment="Left" Margin="491,740,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" Width="754" FontFamily="Georgia" Background="#99FFFFFF"/>
+            <TextBlock HorizontalAlignment="Left" Margin="50,722,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Lagerplatz:" FontFamily="Georgia" Foreground="White"/>
+            <TextBox x:Name="text_location" HorizontalAlignment="Left" Margin="491,862,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" Width="754" FontFamily="Georgia" Background="#99FFFFFF"/>
+            <TextBlock HorizontalAlignment="Left" Margin="50,862,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Beschreibung:" FontFamily="Georgia" Foreground="White"/>
+            <TextBox x:Name="text_descr" HorizontalAlignment="Left" Margin="491,726,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" Width="754" FontFamily="Georgia" Background="#99FFFFFF"/>
             <Rectangle HorizontalAlignment="Left" Height="8" Margin="34,116,0,0" VerticalAlignment="Top" Width="1196" StrokeThickness="3">
                 <Rectangle.Fill>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -44,7 +46,7 @@
         </Grid>
         <Button x:Name="btn_scan" Content="Barcode scannen" HorizontalAlignment="Left" Margin="1510,628,0,0" VerticalAlignment="Top" Height="153" Width="313" FontSize="36" Click="Btn_scan_Click" Background="#FF878686" RequestedTheme="Dark" Foreground="Black"/>
         <Button x:Name="btn_search" Content="Suchen" HorizontalAlignment="Left" Margin="1510,853,0,0" VerticalAlignment="Top" Height="153" Width="313" FontSize="36" Click="Btn_search_Click" Background="#FF878686" RequestedTheme="Dark" Foreground="Black"/>
-        <Grid x:Name="grid_search" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Visibility="Visible">
+        <Grid x:Name="grid_search" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Visibility="Collapsed">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -57,16 +59,18 @@
                     <RowDefinition Height="477*"/>
                     <RowDefinition Height="13*"/>
                 </Grid.RowDefinitions>
-                <TextBlock HorizontalAlignment="Left" Margin="50,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Flaschen auf Lager:" FontFamily="Georgia" Foreground="White"/>
-                <TextBlock x:Name="text_s_Type" HorizontalAlignment="Left" Margin="476,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="_Type_" Width="754" FontFamily="Georgia" Foreground="White"/>
-                <TextBlock HorizontalAlignment="Left" Margin="50,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Flaschentyp:" FontFamily="Georgia" Foreground="White"/>
-                <TextBlock x:Name="text_s_Quantity" HorizontalAlignment="Left" Margin="476,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="_Anzahl_" Width="754" FontFamily="Georgia" Foreground="White"/>
-                <TextBlock HorizontalAlignment="Left" Margin="50,426,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Verkäufer:" FontFamily="Georgia" Foreground="White"/>
-                <TextBlock x:Name="text_s_Vendor" HorizontalAlignment="Left" Margin="476,435,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="_Verkäufer" Width="754" FontFamily="Georgia" Foreground="White"/>
-                <TextBlock HorizontalAlignment="Left" Margin="50,575,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Herkunft:" FontFamily="Georgia" Foreground="White"/>
-                <TextBlock x:Name="text_s_Origin" HorizontalAlignment="Left" Margin="476,581,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="_Herkunft_" Width="754" FontFamily="Georgia" Foreground="White"/>
-                <TextBlock HorizontalAlignment="Left" Margin="50,716,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Beschreibung:" FontFamily="Georgia" Foreground="White"/>
-                <TextBlock x:Name="text_s_descr" HorizontalAlignment="Left" Margin="476,728,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="_Beschreibung_" Width="754" FontFamily="Georgia" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Margin="50,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Flaschentyp:" FontFamily="Georgia" Foreground="White"/>
+                <TextBlock x:Name="text_s_Type" HorizontalAlignment="Left" Margin="476,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Width="754" FontFamily="Georgia" Foreground="White"><Run Text="_Type_"/></TextBlock>
+                <TextBlock HorizontalAlignment="Left" Margin="50,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Flaschen auf Lager:" FontFamily="Georgia" Foreground="White"/>
+                <TextBlock x:Name="text_s_Quantity" HorizontalAlignment="Left" Margin="476,295,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="_Anzahl_" Width="754" FontFamily="Georgia" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Margin="50,415,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Verkäufer:" FontFamily="Georgia" Foreground="White"/>
+                <TextBlock x:Name="text_s_Vendor" HorizontalAlignment="Left" Margin="476,425,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="_Verkäufer" Width="754" FontFamily="Georgia" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Margin="50,545,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Herkunft:" FontFamily="Georgia" Foreground="White"/>
+                <TextBlock x:Name="text_s_Origin" HorizontalAlignment="Left" Margin="476,555,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="_Herkunft_" Width="754" FontFamily="Georgia" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Margin="50,675,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Lagerplatz:" FontFamily="Georgia" Foreground="White"/>
+                <TextBlock x:Name="text_s_Location" HorizontalAlignment="Left" Margin="476,685,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="_Lagerplatz_" Width="754" FontFamily="Georgia" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Margin="50,805,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Beschreibung:" FontFamily="Georgia" Foreground="White"/>
+                <TextBlock x:Name="text_s_descr" HorizontalAlignment="Left" Margin="476,815,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="_Beschreibung_" Width="754" FontFamily="Georgia" Foreground="White"/>
                 <Rectangle HorizontalAlignment="Left" Height="8" Margin="34,116,0,0" VerticalAlignment="Top" Width="1240" StrokeThickness="3">
                     <Rectangle.Fill>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

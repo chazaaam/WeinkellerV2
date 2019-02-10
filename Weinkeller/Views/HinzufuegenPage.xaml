@@ -25,8 +25,10 @@
             <TextBox x:Name="text_Vendor" HorizontalAlignment="Left" Margin="476,423,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" FontFamily="Georgia" MinWidth="754" Background="#99FFFFFF"/>
             <TextBlock HorizontalAlignment="Left" Margin="50,572,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Herkunft:" FontFamily="Georgia" Foreground="White"/>
             <TextBox x:Name="text_Origin" HorizontalAlignment="Left" Margin="476,571,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" FontFamily="Georgia" MinWidth="754" Background="#99FFFFFF"/>
-            <TextBlock HorizontalAlignment="Left" Margin="50,713,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Beschreibung:" FontFamily="Georgia" Foreground="White"/>
-            <TextBox x:Name="text_Descr" HorizontalAlignment="Left" Margin="476,714,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" FontFamily="Georgia" MinWidth="754" Background="#99FFFFFF"/>
+            <TextBlock HorizontalAlignment="Left" Margin="50,722,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Lagerplatz:" FontFamily="Georgia" Foreground="White"/>
+            <TextBox x:Name="text_location" HorizontalAlignment="Left" Margin="476,862,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" Width="754" FontFamily="Georgia" Background="#99FFFFFF"/>
+            <TextBlock HorizontalAlignment="Left" Margin="50,862,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Beschreibung:" FontFamily="Georgia" Foreground="White"/>
+            <TextBox x:Name="text_Descr" HorizontalAlignment="Left" Margin="476,726,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" Width="754" FontFamily="Georgia" Background="#99FFFFFF" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" Tapped="Text_Descr_Tapped"/>
             <Rectangle HorizontalAlignment="Left" Height="8" Margin="34,116,0,0" VerticalAlignment="Top" Width="1196" StrokeThickness="3">
                 <Rectangle.Fill>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

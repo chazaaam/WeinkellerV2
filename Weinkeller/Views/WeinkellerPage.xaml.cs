@@ -49,6 +49,7 @@ namespace Weinkeller.Views
             string temp_descr;
             string temp_type;
             int temp_quantity;
+            List<string> temp_location;
 
             string temp_string;
 
@@ -90,12 +91,19 @@ namespace Weinkeller.Views
                         temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
                         temp_type = temp_string.Substring(0, temp_string.IndexOf(";"));
                         temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
-                        temp_quantity = Convert.ToInt32(temp_string);
+                        temp_quantity = Convert.ToInt32(temp_string.Substring(0, temp_string.IndexOf(";")));
+                        temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                        temp_location = new List<string>();
+                        for (int j = 0; i < temp_quantity; i++)
+                        {
+                            temp_location.Add(temp_string.Substring(0, temp_string.IndexOf(";")));
+                            temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
+                        }
 
                         if (temp_quantity != 0)
-                            WeinList.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity));
+                            WeinList.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity, temp_location));
                         else
-                            WeinListEmpty.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity));
+                            WeinListEmpty.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity, temp_location));
                     }
 
                     currentWein = 0;
@@ -134,6 +142,14 @@ namespace Weinkeller.Views
             text_barcode.Text = WeinList[wine_index].getBarcode();
             text_type.Text = WeinList[wine_index].getTyp();
             text_Quantity.Text = WeinList[wine_index].getQuantity().ToString();
+
+            string temp_location_string = "";
+
+            for (int j = 0; j < WeinList[wine_index].getQuantity(); j++)
+            {
+                temp_location_string = temp_location_string + WeinList[wine_index].getLocation()[j] + "; ";
+            }
+            text_Location.Text = temp_location_string;
 
             Load_image(WeinList[wine_index].getBarcode());
             Load_page(wine_index);
@@ -284,7 +300,7 @@ namespace Weinkeller.Views
             string data_string = @"<head><title>Weinkeller</title><!-- Bootstrap Core CSS --><link href=""WebPage/css/bootstrap.min.css"" rel=""stylesheet""><!--Custom CSS--><link href=""WebPage/css/business-casual.css"" rel=""stylesheet""></head><body><div class=""brand"">Weinkeller</div> ";
             for (int i = 0; i < WeinList.Count(); i++)
             { 
-                data_string = data_string + Fill_html(WeinList[i].getName(), WeinList[i].getBarcode(), WeinList[i].getTyp(), WeinList[i].getQuantity().ToString(), WeinList[i].getVendor(), WeinList[i].getOrigin(), WeinList[i].getDescr());
+                data_string = data_string + Fill_html(WeinList[i].getName(), WeinList[i].getBarcode(), WeinList[i].getTyp(), WeinList[i].getQuantity().ToString(), WeinList[i].getVendor(), WeinList[i].getOrigin(), WeinList[i].getDescr(), WeinList[i].getLocation());
             }
 
             data_string = data_string + @"</div></body></html>";
@@ -293,7 +309,7 @@ namespace Weinkeller.Views
             await Windows.Storage.FileIO.WriteTextAsync(sampleFile, data_string);
         }
 
-        private string Fill_html(string name, string barcode, string typ, string quantity, string vendor, string origin, string desc)
+        private string Fill_html(string name, string barcode, string typ, string quantity, string vendor, string origin, string desc, List<string> location)
         {
             string erg;
 
@@ -303,6 +319,13 @@ namespace Weinkeller.Views
             erg = erg + @"<p>Flaschen auf Lager: " + quantity + @"</p>";
             erg = erg + @"<p>Verkäufer: " + vendor + @"</p>";
             erg = erg + @"<p>Herkunft: " + origin + @"</p>";
+            erg = erg + @"<p>Lagerort: ";
+
+            for (int j = 0; j < Convert.ToInt32(quantity); j++)
+            {
+                erg = erg + location[j] + "; ";
+            }
+            erg = erg + @"</ p > ";
             erg = erg + @"<p>Beschreibung: " + desc + @"</p>";
             erg = erg + @"</div></div></div>";
             return (erg);

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>DESKTOP-UQU2K4R</Machine>
-    <WindowsUser>User</WindowsUser>
+    <Machine>DESKTOP-6I8H0TE</Machine>
+    <WindowsUser>Chazaaam</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>41c87e3c-f0e7-487c-a920-ddfa96e663d6</PackageIdentityName>
     <PackageIdentityPublisher>CN=Dillinger</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +18,8 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>9C7A52B17679C352176E7E6E4DE341C5EDB64595F17A39D10A0FFCF70ACC9310</RegisteredManifestChecksum>
+    <LayoutDir>C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\bin\x86\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>C7DF3642DFC30BD25D698EFA62A203484EF3044571ABB1AC001AEAD8C5190B1E</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>Weinkeller_1.0.0.0_x86__h43tkv77skew6</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>Weinkeller_h43tkv77skew6!App</RegisteredUserModeAppID>
     <RegisteredPackageID>Weinkeller</RegisteredPackageID>
@@ -27,18 +27,18 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-02-08T14:00:33.142</Modified>
+      <Modified>2019-02-09T21:35:31.816</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Weinkeller.exe">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\bin\x86\Debug\Weinkeller.exe">
       <PackagePath>entrypoint\Weinkeller.exe</PackagePath>
-      <Modified>2019-02-08T14:00:31.921</Modified>
+      <Modified>2019-02-09T21:35:28.117</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\.nuget\packages\microsoft.ui.xaml\2.1.181217001-prerelease\runtimes\win10-x86\native\Microsoft.UI.Xaml.dll">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\.nuget\packages\microsoft.ui.xaml\2.1.181217001-prerelease\runtimes\win10-x86\native\Microsoft.UI.Xaml.dll">
       <PackagePath>Microsoft.UI.Xaml.dll</PackagePath>
       <Modified>2018-12-17T17:12:28.000</Modified>
     </AppxPackagedFile>
@@ -46,11 +46,11 @@
       <PackagePath>System.Runtime.dll</PackagePath>
       <Modified>2018-11-29T09:27:16.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\.nuget\packages\microsoft.ui.xaml\2.1.181217001-prerelease\runtimes\win10-x86\native\Microsoft.UI.Xaml\Assets\NoiseAsset_256x256_PNG.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\.nuget\packages\microsoft.ui.xaml\2.1.181217001-prerelease\runtimes\win10-x86\native\Microsoft.UI.Xaml\Assets\NoiseAsset_256x256_PNG.png">
       <PackagePath>NoiseAsset_256x256_PNG.png</PackagePath>
       <Modified>2018-12-17T17:12:28.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\.nuget\packages\microsoft.ui.xaml\2.1.181217001-prerelease\lib\uap10.0\Microsoft.UI.Xaml.winmd">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\.nuget\packages\microsoft.ui.xaml\2.1.181217001-prerelease\lib\uap10.0\Microsoft.UI.Xaml.winmd">
       <PackagePath>Microsoft.UI.Xaml.winmd</PackagePath>
       <Modified>2018-12-17T17:12:26.000</Modified>
     </AppxPackagedFile>
@@ -58,302 +58,302 @@
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2018-10-23T00:33:40.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Amazon.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Amazon.png">
       <PackagePath>Assets\Amazon.png</PackagePath>
-      <Modified>2019-02-06T09:20:26.219</Modified>
+      <Modified>2019-02-09T21:27:18.027</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\kein-bild-vorhanden.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\kein-bild-vorhanden.png">
       <PackagePath>Assets\kein-bild-vorhanden.png</PackagePath>
-      <Modified>2019-01-15T09:47:06.181</Modified>
+      <Modified>2019-02-09T21:27:18.080</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\LargeTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\LargeTile.scale-100.png">
       <PackagePath>Assets\LargeTile.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:53.805</Modified>
+      <Modified>2019-02-09T21:27:18.029</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\LargeTile.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\LargeTile.scale-125.png">
       <PackagePath>Assets\LargeTile.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:53.855</Modified>
+      <Modified>2019-02-09T21:27:18.030</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\LargeTile.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\LargeTile.scale-150.png">
       <PackagePath>Assets\LargeTile.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:53.912</Modified>
+      <Modified>2019-02-09T21:27:18.031</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\LargeTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\LargeTile.scale-200.png">
       <PackagePath>Assets\LargeTile.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:53.997</Modified>
+      <Modified>2019-02-09T21:27:18.032</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\LargeTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\LargeTile.scale-400.png">
       <PackagePath>Assets\LargeTile.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:54.223</Modified>
+      <Modified>2019-02-09T21:27:18.034</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\red-wine-background.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\red-wine-background.png">
       <PackagePath>Assets\red-wine-background.png</PackagePath>
-      <Modified>2019-01-21T15:17:57.874</Modified>
+      <Modified>2019-02-09T21:27:18.159</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\SmallTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\SmallTile.scale-100.png">
       <PackagePath>Assets\SmallTile.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:53.196</Modified>
+      <Modified>2019-02-09T21:27:18.036</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\SmallTile.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\SmallTile.scale-125.png">
       <PackagePath>Assets\SmallTile.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:53.214</Modified>
+      <Modified>2019-02-09T21:27:18.037</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\SmallTile.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\SmallTile.scale-150.png">
       <PackagePath>Assets\SmallTile.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:53.233</Modified>
+      <Modified>2019-02-09T21:27:18.038</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\SmallTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\SmallTile.scale-200.png">
       <PackagePath>Assets\SmallTile.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:53.262</Modified>
+      <Modified>2019-02-09T21:27:18.039</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\SmallTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\SmallTile.scale-400.png">
       <PackagePath>Assets\SmallTile.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:53.298</Modified>
+      <Modified>2019-02-09T21:27:18.039</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:54.499</Modified>
+      <Modified>2019-02-09T21:27:18.040</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\SplashScreen.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\SplashScreen.scale-125.png">
       <PackagePath>Assets\SplashScreen.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:54.548</Modified>
+      <Modified>2019-02-09T21:27:18.041</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\SplashScreen.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\SplashScreen.scale-150.png">
       <PackagePath>Assets\SplashScreen.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:54.630</Modified>
+      <Modified>2019-02-09T21:27:18.042</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\SplashScreen.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\SplashScreen.scale-400.png">
       <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:55.149</Modified>
+      <Modified>2019-02-09T21:27:18.046</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Square150x150Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Square150x150Logo.scale-100.png">
       <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:53.324</Modified>
+      <Modified>2019-02-09T21:27:18.048</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Square150x150Logo.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Square150x150Logo.scale-125.png">
       <PackagePath>Assets\Square150x150Logo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:53.346</Modified>
+      <Modified>2019-02-09T21:27:18.049</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Square150x150Logo.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Square150x150Logo.scale-150.png">
       <PackagePath>Assets\Square150x150Logo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:53.372</Modified>
+      <Modified>2019-02-09T21:27:18.049</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Square150x150Logo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Square150x150Logo.scale-400.png">
       <PackagePath>Assets\Square150x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:53.527</Modified>
+      <Modified>2019-02-09T21:27:18.051</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:54.397</Modified>
+      <Modified>2019-02-09T21:27:18.052</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:54.466</Modified>
+      <Modified>2019-02-09T21:27:18.053</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.altform-unplated_targetsize-32.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.altform-unplated_targetsize-32.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-32.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:54.423</Modified>
+      <Modified>2019-02-09T21:27:18.053</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:54.435</Modified>
+      <Modified>2019-02-09T21:27:18.056</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.scale-100.png">
       <PackagePath>Assets\Square44x44Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:54.238</Modified>
+      <Modified>2019-02-09T21:27:18.056</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.scale-125.png">
       <PackagePath>Assets\Square44x44Logo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:54.258</Modified>
+      <Modified>2019-02-09T21:27:18.057</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.scale-150.png">
       <PackagePath>Assets\Square44x44Logo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:54.275</Modified>
+      <Modified>2019-02-09T21:27:18.058</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.scale-400.png">
       <PackagePath>Assets\Square44x44Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:54.300</Modified>
+      <Modified>2019-02-09T21:27:18.062</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.targetsize-16.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.targetsize-16.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:54.310</Modified>
+      <Modified>2019-02-09T21:27:18.062</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.targetsize-24.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.targetsize-24.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:54.323</Modified>
+      <Modified>2019-02-09T21:27:18.063</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.targetsize-256.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.targetsize-256.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:54.385</Modified>
+      <Modified>2019-02-09T21:27:18.066</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.targetsize-32.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.targetsize-32.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-32.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:54.337</Modified>
+      <Modified>2019-02-09T21:27:18.068</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.targetsize-48.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.targetsize-48.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:54.351</Modified>
+      <Modified>2019-02-09T21:27:18.068</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:55.162</Modified>
+      <Modified>2019-02-09T21:27:18.070</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\StoreLogo.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\StoreLogo.scale-125.png">
       <PackagePath>Assets\StoreLogo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:55.175</Modified>
+      <Modified>2019-02-09T21:27:18.071</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\StoreLogo.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\StoreLogo.scale-150.png">
       <PackagePath>Assets\StoreLogo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:55.186</Modified>
+      <Modified>2019-02-09T21:27:18.072</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\StoreLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\StoreLogo.scale-200.png">
       <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:55.201</Modified>
+      <Modified>2019-02-09T21:27:18.073</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\StoreLogo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\StoreLogo.scale-400.png">
       <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:55.230</Modified>
+      <Modified>2019-02-09T21:27:18.073</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\weinkeller Logo.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\weinkeller Logo.png">
       <PackagePath>Assets\weinkeller Logo.png</PackagePath>
-      <Modified>2019-01-23T12:52:09.473</Modified>
+      <Modified>2019-02-09T21:27:18.161</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Wide310x150Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Wide310x150Logo.scale-100.png">
       <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:53.547</Modified>
+      <Modified>2019-02-09T21:27:18.074</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Wide310x150Logo.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Wide310x150Logo.scale-125.png">
       <PackagePath>Assets\Wide310x150Logo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:53.580</Modified>
+      <Modified>2019-02-09T21:27:18.075</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Wide310x150Logo.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Wide310x150Logo.scale-150.png">
       <PackagePath>Assets\Wide310x150Logo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:53.612</Modified>
+      <Modified>2019-02-09T21:27:18.076</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Wide310x150Logo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Wide310x150Logo.scale-400.png">
       <PackagePath>Assets\Wide310x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:53.763</Modified>
+      <Modified>2019-02-09T21:27:18.079</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2019-01-15T09:47:06.117</Modified>
+      <Modified>2019-02-09T21:27:18.034</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:54.738</Modified>
+      <Modified>2019-02-09T21:27:18.044</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:53.417</Modified>
+      <Modified>2019-02-09T21:27:18.050</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:54.285</Modified>
+      <Modified>2019-02-09T21:27:18.059</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:54.411</Modified>
+      <Modified>2019-02-09T21:27:18.064</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-01-23T12:41:53.651</Modified>
+      <Modified>2019-02-09T21:27:18.078</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Assets\wineloading.gif">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Assets\wineloading.gif">
       <PackagePath>Assets\wineloading.gif</PackagePath>
-      <Modified>2019-01-30T14:46:26.562</Modified>
+      <Modified>2019-02-09T21:27:18.164</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2019-01-15T09:47:06.237</Modified>
+      <Modified>2019-02-09T21:27:18.173</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Weinkeller.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\bin\x86\Debug\Weinkeller.xr.xml">
       <PackagePath>Weinkeller.xr.xml</PackagePath>
-      <Modified>2019-02-07T09:00:48.407</Modified>
+      <Modified>2019-02-09T21:27:20.160</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2019-02-08T14:00:31.458</Modified>
+      <Modified>2019-02-09T21:35:27.841</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2019-02-08T14:00:31.459</Modified>
+      <Modified>2019-02-09T21:35:27.843</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Views\DurchsuchenPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\bin\x86\Debug\Views\DurchsuchenPage.xbf">
       <PackagePath>Views\DurchsuchenPage.xbf</PackagePath>
-      <Modified>2019-02-08T14:00:31.437</Modified>
+      <Modified>2019-02-09T21:35:27.832</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Views\HinzufuegenPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\bin\x86\Debug\Views\HinzufuegenPage.xbf">
       <PackagePath>Views\HinzufuegenPage.xbf</PackagePath>
-      <Modified>2019-02-08T14:00:31.447</Modified>
+      <Modified>2019-02-09T21:35:27.835</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Views\SettingsPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\bin\x86\Debug\Views\SettingsPage.xbf">
       <PackagePath>Views\SettingsPage.xbf</PackagePath>
-      <Modified>2019-02-08T14:00:31.453</Modified>
+      <Modified>2019-02-09T21:35:27.837</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Views\WeinkellerPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\bin\x86\Debug\Views\WeinkellerPage.xbf">
       <PackagePath>Views\WeinkellerPage.xbf</PackagePath>
-      <Modified>2019-02-08T14:00:31.458</Modified>
+      <Modified>2019-02-09T21:35:27.841</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17763.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2018-10-22T23:44:28.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\.nuget\packages\microsoft.ui.xaml\2.1.181217001-prerelease\runtimes\win10-x86\native\Microsoft.UI.Xaml\Assets\NoiseAsset_256X256_PNG.png">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\.nuget\packages\microsoft.ui.xaml\2.1.181217001-prerelease\runtimes\win10-x86\native\Microsoft.UI.Xaml\Assets\NoiseAsset_256X256_PNG.png">
       <PackagePath>Microsoft.UI.Xaml\Assets\NoiseAsset_256X256_PNG.png</PackagePath>
       <Modified>2018-12-17T17:12:28.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2019-02-08T12:43:41.087</Modified>
+      <Modified>2019-02-09T21:35:28.951</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Core\Weinkeller.exe">
+    <AppxPackagedFile Include="C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\bin\x86\Debug\Core\Weinkeller.exe">
       <PackagePath>Weinkeller.exe</PackagePath>
-      <Modified>2019-02-08T14:00:33.127</Modified>
+      <Modified>2019-02-09T21:35:31.799</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
