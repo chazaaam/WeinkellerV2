@@ -8350,24 +8350,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Chazaaam\\.nuget\\packages\\": {},
+    "C:\\Users\\User\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Chazaaam\\Documents\\GitHub\\Weinkeller\\WeinkellerV2\\Weinkeller\\Weinkeller.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\WeinkellerV2\\Weinkeller\\Weinkeller.csproj",
       "projectName": "Weinkeller",
-      "projectPath": "C:\\Users\\Chazaaam\\Documents\\GitHub\\Weinkeller\\WeinkellerV2\\Weinkeller\\Weinkeller.csproj",
-      "packagesPath": "C:\\Users\\Chazaaam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Chazaaam\\Documents\\GitHub\\Weinkeller\\WeinkellerV2\\Weinkeller\\obj\\",
+      "projectPath": "C:\\Users\\User\\Documents\\GitHub\\WeinkellerV2\\Weinkeller\\Weinkeller.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Documents\\GitHub\\WeinkellerV2\\Weinkeller\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Chazaaam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

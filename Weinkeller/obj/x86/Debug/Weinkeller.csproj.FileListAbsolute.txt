@@ -219,7 +219,6 @@ C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\NoiseAsset_
 C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Microsoft.UI.Xaml.winmd
 C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\System.Runtime.dll
 C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\bin\x86\Debug\Microsoft.UI.Xaml.Markup.winmd
-C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\obj\x86\Debug\Weinkeller.csprojAssemblyReference.cache
 C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\obj\x86\Debug\App.g.i.cs
 C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\obj\x86\Debug\App.g.cs
 C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\obj\x86\Debug\MainPage.g.i.cs
@@ -341,3 +340,4 @@ C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\obj\x86\De
 C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\obj\x86\Debug\ProjectArchitectures.txt
 C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_636758516200000000.json
 C:\Users\Chazaaam\Documents\GitHub\Weinkeller\WeinkellerV2\Weinkeller\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.winmd_636806635460000000.json
+C:\Users\User\Documents\GitHub\WeinkellerV2\Weinkeller\obj\x86\Debug\Weinkeller.csprojAssemblyReference.cache

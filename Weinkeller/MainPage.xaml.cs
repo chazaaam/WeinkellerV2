@@ -28,6 +28,7 @@ namespace Weinkeller
     {
         List<Wein> WeinList = new List<Wein>();
 
+        List<string> location_remove;
 
         public MainPage()
         {
@@ -121,6 +122,27 @@ namespace Weinkeller
 
         }
 
+        private async void InputRemoveBottle(string title, int wine_index)
+        {
+            location_remove = new List<string>();
+
+            TextBox inputTextBox = new TextBox();
+            inputTextBox.AcceptsReturn = false;
+            inputTextBox.Height = 32;
+            ContentDialog dialog = new ContentDialog();
+            dialog.Content = inputTextBox;
+            dialog.Title = title;
+            dialog.IsSecondaryButtonEnabled = true;
+            dialog.PrimaryButtonText = "Ok";
+            dialog.SecondaryButtonText = "Cancel";
+            if (await dialog.ShowAsync() == ContentDialogResult.Primary)
+            {
+                location_remove.Add(inputTextBox.Text);
+                CreateFile(WeinList[wine_index]);
+            }
+
+        }
+
         private void RemoveBottle(string barcode)
         {
             bool removed;
@@ -132,7 +154,8 @@ namespace Weinkeller
 
                     if (removed)
                     {
-                        CreateFile(WeinList[i].getBarcode(), WeinList[i].getName(), WeinList[i].getDetailname(), WeinList[i].getVendor(), WeinList[i].getOrigin(), WeinList[i].getDescr(), WeinList[i].getTyp(), WeinList[i].getQuantity(), WeinList[i].getLocation());
+                        WeinList[i].addBottle();
+                        InputRemoveBottle("Lagerplatz aus dem Flasche entfernt wurde scannen", i);
                         return;
                     }
                     else
@@ -198,7 +221,7 @@ namespace Weinkeller
                     temp_quantity = Convert.ToInt32(temp_string.Substring(0, temp_string.IndexOf(";")));
                     temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
                     temp_location = new List<string>();
-                    for (int j = 0; i < temp_quantity; i++)
+                    for (int j = 0; j < temp_quantity; j++)
                     {
                         temp_location.Add(temp_string.Substring(0, temp_string.IndexOf(";")));
                         temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
@@ -212,20 +235,40 @@ namespace Weinkeller
             }
         }
 
-        private async void CreateFile(string barcode, string name, string detailname, string vendor, string origin, string descr, string typ, int quantity, List<string> location)
+        private async void CreateFile(Wein wein_remove)
         {
             try
             {
-                string data_string = barcode + ";" + name + ";" + detailname + ";" + vendor + ";" + origin + ";" + descr + ";" + typ + ";" + quantity.ToString() + ";";
-                for (int j = 0; j < quantity; j++)
+                bool removed = false;
+                for(int i = 0; i < location_remove.Count(); i++)
                 {
-                    data_string = data_string + location[j] + ";";
+                    if(wein_remove.location[i] == location_remove[0])
+                    {
+                        wein_remove.location.RemoveAt(i);
+                        removed = wein_remove.removeBottle();
+                    }
                 }
-                Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-                Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync(barcode + ".txt", Windows.Storage.CreationCollisionOption.ReplaceExisting);
-                await Windows.Storage.FileIO.WriteTextAsync(sampleFile, data_string);
 
-                var messageCheck = new MessageDialog("Flasche wurde aus Weinkeller entfernt", "Flasche entfernen");
+                var messageCheck = new MessageDialog("");
+
+                if (removed)
+                {
+                    string data_string = wein_remove.getBarcode() + ";" + wein_remove.getName() + ";" + wein_remove.getDetailname() + ";" + wein_remove.getVendor() + ";" + wein_remove.getOrigin() + ";" + wein_remove.getDescr() + ";" + wein_remove.getTyp() + ";" + wein_remove.getQuantity().ToString() + ";";
+                    for (int j = 0; j < wein_remove.getQuantity(); j++)
+                    {
+                        data_string = data_string + wein_remove.getLocation()[j] + ";";
+                    }
+                    Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                    Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync(wein_remove.getBarcode() + ".txt", Windows.Storage.CreationCollisionOption.ReplaceExisting);
+                    await Windows.Storage.FileIO.WriteTextAsync(sampleFile, data_string);
+
+                    messageCheck = new MessageDialog("Flasche wurde aus Weinkeller entfernt", "Flasche entfernen");
+
+                }
+                else
+                {
+                    messageCheck = new MessageDialog("Der gescannte Barcode wurde nicht an dem gescannten Lagerplatz gefunden", "Flasche entfernen");
+                }
 
                 var commandChosen = await messageCheck.ShowAsync();
 

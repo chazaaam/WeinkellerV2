@@ -30,6 +30,8 @@ namespace Weinkeller.Views
 
         bool _isSwiped;
 
+        List<string> location = new List<string>();
+
         public DurchsuchenPage()
         {
             this.InitializeComponent();
@@ -94,10 +96,11 @@ namespace Weinkeller.Views
                     temp_descr = temp_string.Substring(0, temp_string.IndexOf(";"));
                     temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
                     temp_type = temp_string.Substring(0, temp_string.IndexOf(";"));
+                    temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
                     temp_quantity = Convert.ToInt32(temp_string.Substring(0, temp_string.IndexOf(";")));
                     temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
 
-                    for (int j = 0; j < temp_quantity; i++)
+                    for (int j = 0; j < temp_quantity; j++)
                     {
                         temp_location.Add(temp_string.Substring(0, temp_string.IndexOf(";")));
                         temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
@@ -120,6 +123,28 @@ namespace Weinkeller.Views
                         return;
                     }
 
+                    bool location_check = false;
+
+                    for (int j = 0; j < location.Count(); j++)
+                    {
+                        for (i = 0; i < temp_location.Count(); i++)
+                        {
+                            if (location[j] == temp_location[i])
+                                location_check = true;
+                        }
+                    }
+
+                    bool typ_check = false;
+
+                    for (int j = 0; j < cmb_typ.Items.Count(); j++)
+                    {
+                        cmb_typ.SelectedIndex = j;
+                        if (temp_type == cmb_typ.SelectionBoxItem.ToString())
+                        {
+                            typ_check = true; ;
+                        }
+                    }
+
 
                     if (Text_Name.Text == "" || temp_name.Contains(Text_Name.Text) || temp_detailname.Contains(Text_Name.Text))
                     {
@@ -131,11 +156,12 @@ namespace Weinkeller.Views
                                 {
                                     if (text_descr.Text == "" || temp_descr.Contains(text_descr.Text))
                                     {
-                                        if (text_type.Text == "" || temp_type.Contains(text_type.Text))
+                                        if (cmb_typ.SelectedIndex == 4 || typ_check)
                                         {
                                             if (barcode == "" || barcode == null || temp_barcode == barcode)
                                             {
-                                                WeinList.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity));
+                                                if(text_location.Text == "" || location_check)
+                                                    WeinList.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity, temp_location));
                                             }
                                         }
                                     }
@@ -146,7 +172,7 @@ namespace Weinkeller.Views
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Show_Message("Es ist ein Fehler beim Öffnen der Dateien aufgetreten.\nBitte überprüfen Sie den Speicherort. \n\nFehler: " + ex.Message, "Fehler");
             }
@@ -179,7 +205,7 @@ namespace Weinkeller.Views
             text_s_descr.Text = WeinList[currentWein].getDescr();
             text_s_Quantity.Text = WeinList[currentWein].getQuantity().ToString();
             text_s_barcode.Text = WeinList[currentWein].getBarcode();
-            text_s_Type.Text = WeinList[currentWein].getBarcode();
+            text_s_Type.Text = WeinList[currentWein].getTyp();
             text_s_Quantity.Text = WeinList[currentWein].getQuantity().ToString();
 
             string temp_location_string = "";
@@ -189,6 +215,15 @@ namespace Weinkeller.Views
                 temp_location_string = temp_location_string + WeinList[currentWein].getLocation()[j] + "; ";
             }
             text_s_Location.Text = temp_location_string;
+
+            if (text_s_Type.Text == "Whisky")
+            {
+                img_amazon.Source = new BitmapImage(new Uri(this.BaseUri, "/Assets/whic_logo.png"));
+            }
+            else
+            {
+                img_amazon.Source = new BitmapImage(new Uri(this.BaseUri, "/Assets/Amazon.png"));
+            }
 
             Load_image(WeinList[currentWein].getBarcode());
             Load_page(currentWein);
@@ -295,12 +330,39 @@ namespace Weinkeller.Views
             if (webView_amazon.Visibility == Visibility.Collapsed)
             {
                 webView_amazon.Visibility = Visibility.Visible;
-                var uri = new Uri("https://www.amazon.de/s/ref=nb_sb_noss_2?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=" + Text_s_Name.Text);
+                var uri = new Uri("");
+                if (text_s_Type.Text == "Whisky")
+                    uri = new Uri("https://www.amazon.de/s/ref=nb_sb_noss_2?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=" + Text_s_Name.Text);
+                else
+                    uri = new Uri("https://whic.de/catalogsearch/result/?q=" + Text_s_Name.Text);
                 webView_amazon.Navigate(uri);
             }
             else
             {
                 webView_amazon.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void Btn_location_Click(object sender, RoutedEventArgs e)
+        {
+            InputLagerplatz("Lagerplatz scannen.");
+        }
+
+        private async void InputLagerplatz(string title)
+        {
+            TextBox inputTextBox = new TextBox();
+            inputTextBox.AcceptsReturn = false;
+            inputTextBox.Height = 32;
+            ContentDialog dialog = new ContentDialog();
+            dialog.Content = inputTextBox;
+            dialog.Title = title;
+            dialog.IsSecondaryButtonEnabled = true;
+            dialog.PrimaryButtonText = "Ok";
+            dialog.SecondaryButtonText = "Cancel";
+            if (await dialog.ShowAsync() == ContentDialogResult.Primary)
+            {
+                location.Add(inputTextBox.Text);
+                text_location.Text = text_location.Text + inputTextBox.Text + "; ";
             }
         }
     }

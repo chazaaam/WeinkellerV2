@@ -21,16 +21,18 @@
                 <RowDefinition Height="477*"/>
                 <RowDefinition Height="13*"/>
             </Grid.RowDefinitions>
+            <TextBlock HorizontalAlignment="Left" Margin="50,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Flaschentyp:" FontFamily="Georgia" Foreground="White"/>
+            <TextBlock x:ConnectionId='14' x:Name="text_type" HorizontalAlignment="Left" Margin="476,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Width="754" FontFamily="Georgia" Foreground="White"><Run Text="_Type_"/></TextBlock>
             <TextBlock HorizontalAlignment="Left" Margin="50,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Flaschen auf Lager:" FontFamily="Georgia" Foreground="White"/>
-            <TextBlock x:ConnectionId='13' x:Name="text_type" HorizontalAlignment="Left" Margin="476,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Width="754" FontFamily="Georgia" Foreground="White"><Run Text="_Type_"/></TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="50,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Flaschentyp:" FontFamily="Georgia" Foreground="White"/>
-            <TextBlock x:ConnectionId='14' x:Name="text_Quantity" HorizontalAlignment="Left" Margin="476,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="_Anzahl_" Width="754" FontFamily="Georgia" Foreground="White"/>
-            <TextBlock HorizontalAlignment="Left" Margin="50,423,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Verkäufer:" FontFamily="Georgia" Foreground="White"/>
-            <TextBlock x:ConnectionId='15' x:Name="text_Vendor" HorizontalAlignment="Left" Margin="476,432,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="_Verkäufer" Width="754" FontFamily="Georgia" Foreground="White"/>
-            <TextBlock HorizontalAlignment="Left" Margin="50,572,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Herkunft:" FontFamily="Georgia" Foreground="White"/>
-            <TextBlock x:ConnectionId='16' x:Name="text_Origin" HorizontalAlignment="Left" Margin="476,578,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="_Herkunft_" Width="754" FontFamily="Georgia" Foreground="White"/>
-            <TextBlock HorizontalAlignment="Left" Margin="50,713,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Beschreibung:" FontFamily="Georgia" Foreground="White"/>
-            <TextBlock x:ConnectionId='17' x:Name="text_descr" HorizontalAlignment="Left" Margin="476,725,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="_Beschreibung_" Width="754" FontFamily="Georgia" Foreground="White"/>
+            <TextBlock x:ConnectionId='15' x:Name="text_Quantity" HorizontalAlignment="Left" Margin="476,295,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="_Anzahl_" Width="754" FontFamily="Georgia" Foreground="White"/>
+            <TextBlock HorizontalAlignment="Left" Margin="50,415,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Verkäufer:" FontFamily="Georgia" Foreground="White"/>
+            <TextBlock x:ConnectionId='16' x:Name="text_Vendor" HorizontalAlignment="Left" Margin="476,425,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="_Verkäufer" Width="754" FontFamily="Georgia" Foreground="White"/>
+            <TextBlock HorizontalAlignment="Left" Margin="50,545,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Herkunft:" FontFamily="Georgia" Foreground="White"/>
+            <TextBlock x:ConnectionId='17' x:Name="text_Origin" HorizontalAlignment="Left" Margin="476,555,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="_Herkunft_" Width="754" FontFamily="Georgia" Foreground="White"/>
+            <TextBlock HorizontalAlignment="Left" Margin="50,675,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Lagerplatz:" FontFamily="Georgia" Foreground="White"/>
+            <TextBlock x:ConnectionId='18' x:Name="text_Location" HorizontalAlignment="Left" Margin="476,685,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="_Lagerplatz_" Width="754" FontFamily="Georgia" Foreground="White"/>
+            <TextBlock HorizontalAlignment="Left" Margin="50,805,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Beschreibung:" FontFamily="Georgia" Foreground="White"/>
+            <TextBlock x:ConnectionId='19' x:Name="text_descr" HorizontalAlignment="Left" Margin="476,815,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="_Beschreibung_" Width="754" FontFamily="Georgia" Foreground="White"/>
             <Rectangle HorizontalAlignment="Left" Height="8" Margin="34,116,0,0" VerticalAlignment="Top" Width="1214" StrokeThickness="3">
                 <Rectangle.Fill>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -39,8 +41,8 @@
                     </LinearGradientBrush>
                 </Rectangle.Fill>
             </Rectangle>
-            <TextBlock x:ConnectionId='18' x:Name="text_barcode" HorizontalAlignment="Left" Margin="980,0,0,0" Text="_barcode_" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" FontFamily="Georgia" Foreground="White"/>
-            <TextBlock x:ConnectionId='19' x:Name="Text_Name" HorizontalAlignment="Left" Margin="50,-13,0,0" Text="_Name_" VerticalAlignment="Top" FontSize="48" TextDecorations="Underline" FontWeight="Bold" MaxWidth="869" LineStackingStrategy="BaselineToBaseline" TextWrapping="Wrap" FontFamily="Georgia" Foreground="White"/>
+            <TextBlock x:ConnectionId='20' x:Name="text_barcode" HorizontalAlignment="Left" Margin="980,0,0,0" Text="_barcode_" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" FontFamily="Georgia" Foreground="White"/>
+            <TextBlock x:ConnectionId='21' x:Name="Text_Name" HorizontalAlignment="Left" Margin="50,-13,0,0" Text="_Name_" VerticalAlignment="Top" FontSize="48" TextDecorations="Underline" FontWeight="Bold" MaxWidth="869" LineStackingStrategy="BaselineToBaseline" TextWrapping="Wrap" FontFamily="Georgia" Foreground="White"/>
         </Grid>
         <TextBlock x:ConnectionId='5' x:Name="text_page" HorizontalAlignment="Center" Margin="0,0,0,10" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Bottom" FontSize="24" Foreground="White"/>
         <Button x:ConnectionId='6' x:Name="btn_back" Content="" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Stretch" FontSize="72"                        Background="#00939393" Width="950" Opacity="0" BorderThickness="0,0,0,0" ManipulationMode="None" Visibility="Visible"/>
@@ -56,7 +58,7 @@
             <TextBlock HorizontalAlignment="Center" Margin="0,498,0,0" Text="&#x1F641;" VerticalAlignment="Top" FontSize="48" MaxWidth="869" LineStackingStrategy="BaselineToBaseline" TextWrapping="Wrap" FontFamily="Georgia" Foreground="White" TextAlignment="Center" FontWeight="Bold"/>
         </Grid>
         <Grid>
-            <TextBlock x:ConnectionId='12' Name="SwipeableTextBlock" 
+            <TextBlock x:ConnectionId='13' Name="SwipeableTextBlock" 
                HorizontalAlignment="Stretch"
                VerticalAlignment="Stretch"
                TextAlignment="Center" 
@@ -69,8 +71,8 @@
         <WebView x:ConnectionId='9' x:Name="webView_amazon" Margin="0,0,0,0" Visibility="Collapsed"/>
         <Grid x:ConnectionId='10' x:Name="grid_amazon" Width="227" Height="83" HorizontalAlignment="Left" VerticalAlignment="Bottom" BorderThickness="1,1,1,1" BorderBrush="Black">
             <Rectangle Width="227" Height="83" HorizontalAlignment="Left" VerticalAlignment="Bottom" Fill="White"/>
-                <Button x:ConnectionId='11' x:Name="btn_amazon" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Bottom" Background="White"                          Height="83" Width="227" ManipulationMode="None">
-                <Image Source="/Assets/Amazon.png" Stretch="Uniform" RenderTransformOrigin="0.5,0.504"/>
+                <Button x:ConnectionId='11' x:Name="btn_amazon" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Bottom" Background="White"                          Height="83" Width="227" ManipulationMode="None" Padding="0,0,0,0">
+                <Image x:ConnectionId='12' x:Name="img_amazon" Stretch="Uniform" RenderTransformOrigin="0.5,0.504"/>
             </Button>
         </Grid>
     </Grid>

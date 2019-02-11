@@ -35,7 +35,7 @@ namespace Weinkeller.Views
         string descr;
         string typ;
         int quantity;
-        List<string> location;
+        List<string> location = new List<string>();
 
 
         public HinzufuegenPage()
@@ -101,7 +101,7 @@ namespace Weinkeller.Views
                         descr = result.Substring(result.IndexOf("descr=") + 6);
                         descr = descr.Substring(0, descr.IndexOf("name_en"));
                         descr = descr.Replace("\n", String.Empty);
-                        quantity = 1;
+                        quantity = 0;
                         typ = "";
 
                         location = new List<string>();
@@ -153,7 +153,6 @@ namespace Weinkeller.Views
             }
             else
             {
-                WeinList[barcodeID].addBottle();
                 barcode = WeinList[barcodeID].getBarcode();
                 name = WeinList[barcodeID].getName();
                 detailname = WeinList[barcodeID].getDetailname();
@@ -164,7 +163,7 @@ namespace Weinkeller.Views
                 quantity = WeinList[barcodeID].getQuantity();
                 location = WeinList[barcodeID].getLocation();
 
-                Show_Message("Datenbankeintrag war bereits vorhanden.\nLagerstand wurde um eins erhöht.", "Bekannter Wein gefunden");
+                Show_Message("Datenbankeintrag war bereits vorhanden.\nBitte neuen Lagerplatz hinzufügen.", "Bekannter Wein gefunden");
 
                 Load_Wine(barcodeID);
             }
@@ -183,17 +182,28 @@ namespace Weinkeller.Views
                 text_Descr.Text = WeinList[wine_index].getDescr();
                 text_Quantity.Text = WeinList[wine_index].getQuantity().ToString();
                 text_Barcode.Text = WeinList[wine_index].getBarcode();
-                text_Type.Text = WeinList[wine_index].getTyp();
                 text_Quantity.Text = WeinList[wine_index].getQuantity().ToString();
 
                 string temp_location_string = "";
 
-                for (int j = 0; j < Convert.ToInt32(WeinList[wine_index].getQuantity()); j++)
+                if (WeinList[wine_index].getLocation().Count() > 0)
                 {
-                    temp_location_string = temp_location_string + WeinList[wine_index].getLocation()[j] + "; ";
+                    for (int j = 0; j < Convert.ToInt32(WeinList[wine_index].getQuantity()); j++)
+                    {
+                        temp_location_string = temp_location_string + WeinList[wine_index].getLocation()[j] + "; ";
+                    }
                 }
-
                 text_location.Text = temp_location_string;
+
+                for (int i = 0; i < cmb_typ.Items.Count(); i++)
+                {
+                    cmb_typ.SelectedIndex = i;
+                    if (WeinList[wine_index].getTyp() == cmb_typ.SelectionBoxItem.ToString())
+                    {
+                        return;
+                    }
+                    cmb_typ.SelectedIndex = 0;
+                }
 
             }
             catch(Exception ex)
@@ -217,7 +227,7 @@ namespace Weinkeller.Views
             {
                 // Auf manuelles Anlegen Seite wechseln
                 text_Barcode.Text = barcode;
-                text_Quantity.Text = "1";
+                text_Quantity.Text = "0";
             }
             else if (commandChosen.Label == "Nein")
             {
@@ -245,7 +255,7 @@ namespace Weinkeller.Views
             vendor = text_Vendor.Text;
             origin = text_Origin.Text;
             descr = text_Descr.Text;
-            typ = text_Type.Text;
+            typ = cmb_typ.SelectionBoxItem.ToString();
 
             string barcode_check = text_Barcode.Text.Replace(" ", "");
 
@@ -339,9 +349,10 @@ namespace Weinkeller.Views
             origin = "Testingen";
             descr = "Dieser Wein wurde zum Testen der Speicherung angelegt";
             typ = "Rotwein";
-            quantity = 34;
+            quantity = 2;
             location = new List<string>();
             location.Add("123");
+            location.Add("223");
 
             CreateFile();
         }
@@ -431,7 +442,7 @@ namespace Weinkeller.Views
                     temp_quantity = Convert.ToInt32(temp_string.Substring(0, temp_string.IndexOf(";")));
                     temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
 
-                    for(int j = 0; j < temp_quantity; i++)
+                    for(int j = 0; j < temp_quantity; j++)
                     {
                         temp_location.Add(temp_string.Substring(0, temp_string.IndexOf(";")));
                         temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
@@ -446,9 +457,9 @@ namespace Weinkeller.Views
             }
         }
 
-        private void Text_Descr_Tapped(object sender, TappedRoutedEventArgs e)
+        private void Btn_location_Click(object sender, RoutedEventArgs e)
         {
-            InputTextDialogAsync("Lagerplatz scannen.");
+            InputLagerplatz("Lagerplatz scannen.");
         }
 
         private async void InputLagerplatz(string title)
@@ -465,8 +476,17 @@ namespace Weinkeller.Views
             if (await dialog.ShowAsync() == ContentDialogResult.Primary)
             {
                 location.Add(inputTextBox.Text);
-                text_location.Text = text_location.Text + inputTextBox.Text;
+                text_location.Text = text_location.Text + inputTextBox.Text + "; ";
+                text_Quantity.Text = (Convert.ToInt32(text_Quantity.Text) + 1).ToString();
             }
+        }
+
+        private void Btn_quantity_Click(object sender, RoutedEventArgs e)
+        {
+            location = new List<string>();
+            quantity = 0;
+            text_Quantity.Text = "0";
+            text_location.Text = "";
         }
     }
 }

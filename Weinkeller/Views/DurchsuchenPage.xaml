@@ -17,7 +17,6 @@
     <Grid x:Name="MainGrid" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
         <Grid x:Name="InfoGrid" HorizontalAlignment="Left" Height="980" VerticalAlignment="Top" Width="1298" Margin="50,95,0,0">
             <TextBlock HorizontalAlignment="Left" Margin="50,438,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Verkäufer:" FontFamily="Georgia" Foreground="White"/>
-            <TextBox x:Name="text_type" HorizontalAlignment="Left" Margin="491,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" Width="754" FontFamily="Georgia" Background="#99FFFFFF"/>
             <TextBlock HorizontalAlignment="Left" Margin="50,-10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Name:" FontFamily="Georgia" Foreground="White"/>
             <TextBox x:Name="Text_Name" HorizontalAlignment="Left" Margin="491,-10,0,0" Text="" VerticalAlignment="Top" Width="754" FontSize="36" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" FontWeight="Bold" FontFamily="Georgia" Background="#99FFFFFF"/>
             <TextBlock HorizontalAlignment="Left" Margin="50,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Flaschen auf Lager:" FontFamily="Georgia" Foreground="White"/>
@@ -27,9 +26,10 @@
             <TextBlock HorizontalAlignment="Left" Margin="50,587,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Herkunft:" FontFamily="Georgia" Foreground="White"/>
             <TextBox x:Name="text_origin" HorizontalAlignment="Left" Margin="491,589,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" Width="754" FontFamily="Georgia" Background="#99FFFFFF"/>
             <TextBlock HorizontalAlignment="Left" Margin="50,722,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Lagerplatz:" FontFamily="Georgia" Foreground="White"/>
-            <TextBox x:Name="text_location" HorizontalAlignment="Left" Margin="491,862,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" Width="754" FontFamily="Georgia" Background="#99FFFFFF"/>
+            <TextBox x:Name="text_descr" HorizontalAlignment="Left" Margin="491,862,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" Width="754" FontFamily="Georgia" Background="#99FFFFFF"/>
             <TextBlock HorizontalAlignment="Left" Margin="50,862,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Beschreibung:" FontFamily="Georgia" Foreground="White"/>
-            <TextBox x:Name="text_descr" HorizontalAlignment="Left" Margin="491,726,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" Width="754" FontFamily="Georgia" Background="#99FFFFFF"/>
+            <TextBox x:Name="text_location" HorizontalAlignment="Left" Margin="491,726,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" Width="754" FontFamily="Georgia" Background="#99FFFFFF"/>
+            <Button x:Name="btn_location" Content="" HorizontalAlignment="Left" Margin="492,725,0,0" VerticalAlignment="Top" Height="54" Width="754" Click="Btn_location_Click"/>
             <Rectangle HorizontalAlignment="Left" Height="8" Margin="34,116,0,0" VerticalAlignment="Top" Width="1196" StrokeThickness="3">
                 <Rectangle.Fill>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -42,6 +42,13 @@
                 <ComboBoxItem Content="&gt;"/>
                 <ComboBoxItem Content="="/>
                 <ComboBoxItem Content="&lt;"/>
+            </ComboBox>
+            <ComboBox x:Name="cmb_typ" HorizontalAlignment="Left" Margin="491,183,0,0" VerticalAlignment="Top" Width="754" Height="54" FontSize="36" SelectedIndex="4" Padding="20,0,0,0" >
+                <ComboBoxItem Content="Rotwein"/>
+                <ComboBoxItem Content="Weißwein"/>
+                <ComboBoxItem Content="Whisky"/>
+                <ComboBoxItem Content="Schaumwein"/>
+                <ComboBoxItem Content=""/>
             </ComboBox>
         </Grid>
         <Button x:Name="btn_scan" Content="Barcode scannen" HorizontalAlignment="Left" Margin="1510,628,0,0" VerticalAlignment="Top" Height="153" Width="313" FontSize="36" Click="Btn_scan_Click" Background="#FF878686" RequestedTheme="Dark" Foreground="Black"/>
@@ -99,7 +106,7 @@
             <Grid x:Name="grid_amazon" Width="227" Height="83" HorizontalAlignment="Left" VerticalAlignment="Bottom" BorderThickness="1,1,1,1" BorderBrush="Black">
                 <Rectangle Width="227" Height="83" HorizontalAlignment="Left" VerticalAlignment="Bottom" Fill="White"/>
                 <Button x:Name="btn_amazon" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Bottom" Background="White" Click="Btn_amazon_Click" Height="83" Width="227" ManipulationMode="None">
-                    <Image Source="/Assets/Amazon.png" Stretch="Uniform" RenderTransformOrigin="0.5,0.504"/>
+                    <Image x:Name="img_amazon" Stretch="Uniform" RenderTransformOrigin="0.5,0.504"/>
                 </Button>
             </Grid>
         </Grid>

@@ -104,7 +104,7 @@ namespace Weinkeller.Views
                     temp_quantity = Convert.ToInt32(temp_string.Substring(0, temp_string.IndexOf(";")));
                     temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
                     temp_location = new List<string>();
-                    for (int j = 0; i < temp_quantity; i++)
+                    for (int j = 0; j < temp_quantity; j++)
                     {
                         temp_location.Add(temp_string.Substring(0, temp_string.IndexOf(";")));
                         temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);

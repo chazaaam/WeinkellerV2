@@ -94,7 +94,7 @@ namespace Weinkeller.Views
                         temp_quantity = Convert.ToInt32(temp_string.Substring(0, temp_string.IndexOf(";")));
                         temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
                         temp_location = new List<string>();
-                        for (int j = 0; i < temp_quantity; i++)
+                        for (int j = 0; j < temp_quantity; j++)
                         {
                             temp_location.Add(temp_string.Substring(0, temp_string.IndexOf(";")));
                             temp_string = temp_string.Substring(temp_string.IndexOf(";") + 1);
@@ -150,6 +150,15 @@ namespace Weinkeller.Views
                 temp_location_string = temp_location_string + WeinList[wine_index].getLocation()[j] + "; ";
             }
             text_Location.Text = temp_location_string;
+
+            if(text_type.Text == "Whisky")
+            {
+                img_amazon.Source = new BitmapImage(new Uri(this.BaseUri, "/Assets/whic_logo.png"));
+            }
+            else
+            {
+                img_amazon.Source = new BitmapImage(new Uri(this.BaseUri, "/Assets/Amazon.png"));
+            }
 
             Load_image(WeinList[wine_index].getBarcode());
             Load_page(wine_index);
@@ -284,7 +293,11 @@ namespace Weinkeller.Views
             if (webView_amazon.Visibility == Visibility.Collapsed)
             {
                 webView_amazon.Visibility = Visibility.Visible;
-                var uri = new Uri("https://www.amazon.de/s/ref=nb_sb_noss_2?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=" + Text_Name.Text);
+                var uri = new Uri("http://google.de");
+                if (text_type.Text != "Whisky")
+                    uri = new Uri("https://www.amazon.de/s/ref=nb_sb_noss_2?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=" + Text_Name.Text);
+                else
+                    uri = new Uri("https://whic.de/catalogsearch/result/?q=" + Text_Name.Text);
                 webView_amazon.Navigate(uri);
             }
             else
@@ -295,7 +308,12 @@ namespace Weinkeller.Views
 
         private async void Create_html()
         {
-            //await ApplicationData.Current.LocalFolder.CreateFolderAsync("WebPage");
+            try
+            {
+                await ApplicationData.Current.LocalFolder.CreateFolderAsync("WebPage", CreationCollisionOption.FailIfExists);
+            }
+            catch (Exception) {}
+
 
             string data_string = @"<head><title>Weinkeller</title><!-- Bootstrap Core CSS --><link href=""WebPage/css/bootstrap.min.css"" rel=""stylesheet""><!--Custom CSS--><link href=""WebPage/css/business-casual.css"" rel=""stylesheet""></head><body><div class=""brand"">Weinkeller</div> ";
             for (int i = 0; i < WeinList.Count(); i++)
@@ -305,7 +323,7 @@ namespace Weinkeller.Views
 
             data_string = data_string + @"</div></body></html>";
             Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync("test" + ".html", Windows.Storage.CreationCollisionOption.ReplaceExisting);
+            Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync("Weinkeller" + ".html", Windows.Storage.CreationCollisionOption.ReplaceExisting);
             await Windows.Storage.FileIO.WriteTextAsync(sampleFile, data_string);
         }
 

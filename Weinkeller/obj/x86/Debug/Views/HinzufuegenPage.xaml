@@ -18,15 +18,22 @@
             <TextBox x:ConnectionId='10' x:Name="Text_Name" HorizontalAlignment="Left" Margin="50,-10,0,0" Text="" VerticalAlignment="Top" Width="869" FontSize="36" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" FontWeight="Bold" FontFamily="Georgia" Background="#99FFFFFF"/>
             <TextBlock x:ConnectionId='11' x:Name="text_Barcode" HorizontalAlignment="Left" Margin="979,2,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Georgia" Width="251" Padding="10,0,6,6" Foreground="White"/>
             <TextBlock HorizontalAlignment="Left" Margin="50,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Flaschen auf Lager:" FontFamily="Georgia" Foreground="White"/>
-            <TextBox x:ConnectionId='12' x:Name="text_Type" HorizontalAlignment="Left" Margin="476,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="Rotwein" FontFamily="Georgia" MinWidth="754" Background="#99FFFFFF"/>
+            <ComboBox x:ConnectionId='12' x:Name="cmb_typ" HorizontalAlignment="Left" Margin="476,159,0,0" VerticalAlignment="Top" Width="754" Height="54" FontSize="36" SelectedIndex="0" Padding="20,0,0,0" >
+                <ComboBoxItem Content="Rotwein"/>
+                <ComboBoxItem Content="Weißwein"/>
+                <ComboBoxItem Content="Whisky"/>
+                <ComboBoxItem Content="Schaumwein"/>
+            </ComboBox>
             <TextBlock HorizontalAlignment="Left" Margin="50,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Flaschentyp:" FontFamily="Georgia" Foreground="White"/>
             <TextBox x:ConnectionId='13' x:Name="text_Quantity" HorizontalAlignment="Left" Margin="476,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" FontFamily="Georgia" MinWidth="754" Background="#99FFFFFF"/>
             <TextBlock HorizontalAlignment="Left" Margin="50,423,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Verkäufer:" FontFamily="Georgia" Foreground="White"/>
             <TextBox x:ConnectionId='14' x:Name="text_Vendor" HorizontalAlignment="Left" Margin="476,423,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" FontFamily="Georgia" MinWidth="754" Background="#99FFFFFF"/>
             <TextBlock HorizontalAlignment="Left" Margin="50,572,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Herkunft:" FontFamily="Georgia" Foreground="White"/>
             <TextBox x:ConnectionId='15' x:Name="text_Origin" HorizontalAlignment="Left" Margin="476,571,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" FontFamily="Georgia" MinWidth="754" Background="#99FFFFFF"/>
-            <TextBlock HorizontalAlignment="Left" Margin="50,713,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Beschreibung:" FontFamily="Georgia" Foreground="White"/>
-            <TextBox x:ConnectionId='16' x:Name="text_Descr" HorizontalAlignment="Left" Margin="476,714,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" FontFamily="Georgia" MinWidth="754" Background="#99FFFFFF"/>
+            <TextBlock HorizontalAlignment="Left" Margin="50,719,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Lagerplatz:" FontFamily="Georgia" Foreground="White"/>
+            <TextBox x:ConnectionId='16' x:Name="text_Descr" HorizontalAlignment="Left" Margin="476,862,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" Width="754" FontFamily="Georgia" Background="#99FFFFFF"/>
+            <TextBlock HorizontalAlignment="Left" Margin="50,862,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Beschreibung:" FontFamily="Georgia" Foreground="White"/>
+            <TextBox x:ConnectionId='17' x:Name="text_location" HorizontalAlignment="Left" Margin="476,723,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="" Width="754" FontFamily="Georgia" Background="#99FFFFFF" RequestedTheme="Default"/>
             <Rectangle HorizontalAlignment="Left" Height="8" Margin="34,116,0,0" VerticalAlignment="Top" Width="1196" StrokeThickness="3">
                 <Rectangle.Fill>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -35,6 +42,9 @@
                     </LinearGradientBrush>
                 </Rectangle.Fill>
             </Rectangle>
+            <Button x:ConnectionId='18' x:Name="btn_location" Content="" HorizontalAlignment="Left" Margin="476,725,0,0" VerticalAlignment="Top" Height="54" Width="754"                           />
+            <Button x:ConnectionId='19' x:Name="btn_quantity" Content="Clicken zum Löschen" HorizontalAlignment="Left" Margin="476,283,0,0" VerticalAlignment="Top" Height="54" Width="754" FontSize="36" HorizontalContentAlignment="Right" Padding="0,4,30,5"                           />
+
         </Grid>
         <Button x:ConnectionId='4' x:Name="btn_save" Content="Speichern" HorizontalAlignment="Left" Margin="1510,853,0,0" VerticalAlignment="Top" Height="153" Width="313" FontSize="36"                        Background="#FF878686" RequestedTheme="Dark" Foreground="Black"/>
         <Button x:ConnectionId='5' x:Name="btn_scan" Content="Barcode scannen" HorizontalAlignment="Left" Margin="1510,628,0,0" VerticalAlignment="Top" Height="153" Width="313" FontSize="36"                        Background="#FF878686" RequestedTheme="Dark" Foreground="Black"/>
