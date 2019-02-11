@@ -314,16 +314,54 @@ namespace Weinkeller.Views
             }
             catch (Exception) {}
 
-
-            string data_string = @"<head><title>Weinkeller</title><!-- Bootstrap Core CSS --><link href=""WebPage/css/bootstrap.min.css"" rel=""stylesheet""><!--Custom CSS--><link href=""WebPage/css/business-casual.css"" rel=""stylesheet""></head><body><div class=""brand"">Weinkeller</div> ";
+            // Rotwein
+            string data_string = @"<head><title>Rotwein</title><!-- Bootstrap Core CSS --><link href=""WebPage/css/bootstrap.min.css"" rel=""stylesheet""><!--Custom CSS--><link href=""WebPage/css/business-casual.css"" rel=""stylesheet""></head><body><div class=""brand"">Rotwein</div> ";
             for (int i = 0; i < WeinList.Count(); i++)
             { 
-                data_string = data_string + Fill_html(WeinList[i].getName(), WeinList[i].getBarcode(), WeinList[i].getTyp(), WeinList[i].getQuantity().ToString(), WeinList[i].getVendor(), WeinList[i].getOrigin(), WeinList[i].getDescr(), WeinList[i].getLocation());
+                if(WeinList[i].getTyp() == "Rotwein")
+                    data_string = data_string + Fill_html(WeinList[i].getName(), WeinList[i].getBarcode(), WeinList[i].getTyp(), WeinList[i].getQuantity().ToString(), WeinList[i].getVendor(), WeinList[i].getOrigin(), WeinList[i].getDescr(), WeinList[i].getLocation());
             }
 
             data_string = data_string + @"</div></body></html>";
             Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync("Weinkeller" + ".html", Windows.Storage.CreationCollisionOption.ReplaceExisting);
+            Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync("Rotwein" + ".html", Windows.Storage.CreationCollisionOption.ReplaceExisting);
+            await Windows.Storage.FileIO.WriteTextAsync(sampleFile, data_string);
+
+            // Weißwein
+            data_string = @"<head><title>Weißwein</title><!-- Bootstrap Core CSS --><link href=""WebPage/css/bootstrap.min.css"" rel=""stylesheet""><!--Custom CSS--><link href=""WebPage/css/business-casual.css"" rel=""stylesheet""></head><body><div class=""brand"">Weißwein</div> ";
+            for (int i = 0; i < WeinList.Count(); i++)
+            {
+                if (WeinList[i].getTyp() == "Weißwein")
+                    data_string = data_string + Fill_html(WeinList[i].getName(), WeinList[i].getBarcode(), WeinList[i].getTyp(), WeinList[i].getQuantity().ToString(), WeinList[i].getVendor(), WeinList[i].getOrigin(), WeinList[i].getDescr(), WeinList[i].getLocation());
+            }
+
+            data_string = data_string + @"</div></body></html>";
+            storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            sampleFile = await storageFolder.CreateFileAsync("Weißwein" + ".html", Windows.Storage.CreationCollisionOption.ReplaceExisting);
+            await Windows.Storage.FileIO.WriteTextAsync(sampleFile, data_string);
+            // Whisky
+            data_string = @"<head><title>Whisky</title><!-- Bootstrap Core CSS --><link href=""WebPage/css/bootstrap.min.css"" rel=""stylesheet""><!--Custom CSS--><link href=""WebPage/css/business-casual.css"" rel=""stylesheet""></head><body><div class=""brand"">Whisky</div> ";
+            for (int i = 0; i < WeinList.Count(); i++)
+            {
+                if (WeinList[i].getTyp() == "Whisky")
+                    data_string = data_string + Fill_html(WeinList[i].getName(), WeinList[i].getBarcode(), WeinList[i].getTyp(), WeinList[i].getQuantity().ToString(), WeinList[i].getVendor(), WeinList[i].getOrigin(), WeinList[i].getDescr(), WeinList[i].getLocation());
+            }
+
+            data_string = data_string + @"</div></body></html>";
+            storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            sampleFile = await storageFolder.CreateFileAsync("Whisky" + ".html", Windows.Storage.CreationCollisionOption.ReplaceExisting);
+            await Windows.Storage.FileIO.WriteTextAsync(sampleFile, data_string);
+            //Schaumwein
+            data_string = @"<head><title>Schaumwein</title><!-- Bootstrap Core CSS --><link href=""WebPage/css/bootstrap.min.css"" rel=""stylesheet""><!--Custom CSS--><link href=""WebPage/css/business-casual.css"" rel=""stylesheet""></head><body><div class=""brand"">Schaumwein</div> ";
+            for (int i = 0; i < WeinList.Count(); i++)
+            {
+                if (WeinList[i].getTyp() == "Schaumwein")
+                    data_string = data_string + Fill_html(WeinList[i].getName(), WeinList[i].getBarcode(), WeinList[i].getTyp(), WeinList[i].getQuantity().ToString(), WeinList[i].getVendor(), WeinList[i].getOrigin(), WeinList[i].getDescr(), WeinList[i].getLocation());
+            }
+
+            data_string = data_string + @"</div></body></html>";
+            storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            sampleFile = await storageFolder.CreateFileAsync("Schaumwein" + ".html", Windows.Storage.CreationCollisionOption.ReplaceExisting);
             await Windows.Storage.FileIO.WriteTextAsync(sampleFile, data_string);
         }
 
@@ -333,19 +371,20 @@ namespace Weinkeller.Views
 
             erg = @"<div class=""row""><div class=""box""><div class=""col-lg-12""><img class=""img-left"" src="""+barcode+ @".jpg"" alt = """" ><hr>";
             erg = erg + @"<h2 class=""intro-text text-center"">" + name + @"</h2><hr>";
-            erg = erg + @"<p>Flaschentyp: "+ typ +@"</p>";
-            erg = erg + @"<p>Flaschen auf Lager: " + quantity + @"</p>";
-            erg = erg + @"<p>Verkäufer: " + vendor + @"</p>";
-            erg = erg + @"<p>Herkunft: " + origin + @"</p>";
-            erg = erg + @"<p>Lagerort: ";
+            erg = erg + @"<table style=""width: 100 % ""><tr><td>Flaschentyp: </td><td>" + typ + @"</td></tr>";
+            erg = erg + @"<tr><td>Flaschen auf Lager: </td><td>" + quantity + @"</td></tr>";
+            erg = erg + @"<tr><td>Verkäufer: </td><td>" + vendor + @"</td></tr>";
+            erg = erg + @"<tr><td>Herkunft: </td><td>" + origin + @"</td></tr>";
+            erg = erg + @"<tr><td>Lagerort: </td><td>";
+
 
             for (int j = 0; j < Convert.ToInt32(quantity); j++)
             {
                 erg = erg + location[j] + "; ";
             }
-            erg = erg + @"</ p > ";
-            erg = erg + @"<p>Beschreibung: " + desc + @"</p>";
-            erg = erg + @"</div></div></div>";
+            erg = erg + @"</td></tr>";
+            erg = erg + @"<tr><td>Beschreibung: </td><td>" + desc + @"</td></tr>";
+            erg = erg + @"</table></div></div></div>";
             return (erg);
         }
     }
