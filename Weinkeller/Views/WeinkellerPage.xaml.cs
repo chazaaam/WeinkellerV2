@@ -293,7 +293,7 @@ namespace Weinkeller.Views
             if (webView_amazon.Visibility == Visibility.Collapsed)
             {
                 webView_amazon.Visibility = Visibility.Visible;
-                var uri = new Uri("http://google.de");
+                var uri = new Uri("https://www.google.de/search?q="+ Text_Name.Text +"&hl=de&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjMos-Q7bjgAhXJKFAKHTO6ARQQ_AUIDygC&biw=888&bih=647");
                 if (text_type.Text != "Whisky")
                     uri = new Uri("https://www.amazon.de/s/ref=nb_sb_noss_2?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=" + Text_Name.Text);
                 else

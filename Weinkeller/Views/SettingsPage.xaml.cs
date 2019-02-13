@@ -37,6 +37,8 @@ namespace Weinkeller.Views
 
         bool result;
 
+        string user_token;
+
         public SettingsPage()
         {
             this.InitializeComponent();
@@ -45,7 +47,7 @@ namespace Weinkeller.Views
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             Load_data();
-
+            Load_Settings();
         }
 
         private async void Load_data()
@@ -134,7 +136,7 @@ namespace Weinkeller.Views
 
         private async void Btn_data_delete_Click(object sender, RoutedEventArgs e)
         {
-            await User_Check("Sollen wirklich alle gespeicherten Barcodes gelöscht werden?\n\n Dies kann nicht rückgängig gemacht werden.", "Daten löschen");
+            await User_Check("Sollen wirklich alle gespeicherten Daten gelöscht werden?\nAchtung ihre Einstellungen wie z.B. User Token werden auch zurückgesetzt.\n\n Dies kann nicht rückgängig gemacht werden.", "Daten löschen");
             if(result)
             {
                 List<Wein> portList = new List<Wein>();
@@ -278,5 +280,34 @@ namespace Weinkeller.Views
             await messageCheck.ShowAsync();
         }
 
+        private async void Btn_user_save_Click(object sender, RoutedEventArgs e)
+        {
+            string data_string;
+            data_string = "UserToken:"+ text_user.Text + ";";
+
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync("settings.xml", Windows.Storage.CreationCollisionOption.ReplaceExisting);
+            await Windows.Storage.FileIO.WriteTextAsync(sampleFile, data_string);
+        }
+
+        private async void Load_Settings()
+        {
+            
+            try
+            {
+                Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                Windows.Storage.StorageFile sampleFile = await storageFolder.GetFileAsync("settings.xml");
+
+                string text = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
+
+                text = text.Substring(text.IndexOf("UserToken:") + 10);
+                user_token = text.Substring(0, text.IndexOf(";"));
+            }
+            catch (Exception)
+            {
+                user_token = "400000000";
+            }
+            text_user.Text = user_token;
+        }
     }
 }

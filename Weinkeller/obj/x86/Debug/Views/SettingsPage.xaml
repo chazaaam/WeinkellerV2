@@ -14,16 +14,18 @@
     </Page.Background>
 
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="50,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Angelegte Barcodes:" FontFamily="Georgia" Foreground="White"/>
-        <TextBlock x:ConnectionId='2' x:Name="text_anzahl_barcodes" HorizontalAlignment="Left" Margin="660,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="_anzahl_barcodes_" FontFamily="Georgia" Foreground="White"/>
-        <TextBlock HorizontalAlignment="Left" Margin="50,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Barcodes mit >0 Flaschen:" FontFamily="Georgia" Foreground="White"/>
-        <TextBlock x:ConnectionId='3' x:Name="text_anzahl_barcodes_gt_zero" HorizontalAlignment="Left" Margin="660,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="_anzahl_>0_:" FontFamily="Georgia" Foreground="White"/>
-        <TextBlock HorizontalAlignment="Left" Margin="50,471,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Barcodes mit 0 Flaschen:" FontFamily="Georgia" Foreground="White"/>
-        <TextBlock x:ConnectionId='4' x:Name="text_anzahl_barcodes_is_zero" HorizontalAlignment="Left" Margin="660,471,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="_anzahl_0_" FontFamily="Georgia" Foreground="White"/>
-        <TextBlock HorizontalAlignment="Left" Margin="50,633,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Flaschen auf Lager:" FontFamily="Georgia" Foreground="White"/>
-        <TextBlock x:ConnectionId='5' x:Name="text_anzahl_flaschen" HorizontalAlignment="Left" Margin="660,633,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="_flaschen_" FontFamily="Georgia" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Datenbank User Token:" FontFamily="Georgia" Foreground="White"/>
+        <TextBox x:ConnectionId='2' x:Name="text_user" HorizontalAlignment="Left" Margin="660,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="_user_token_" FontFamily="Georgia" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Angelegte Barcodes:" FontFamily="Georgia" Foreground="White"/>
+        <TextBlock x:ConnectionId='3' x:Name="text_anzahl_barcodes" HorizontalAlignment="Left" Margin="660,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="_anzahl_barcodes_" FontFamily="Georgia" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,387,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Barcodes mit >0 Flaschen:" FontFamily="Georgia" Foreground="White"/>
+        <TextBlock x:ConnectionId='4' x:Name="text_anzahl_barcodes_gt_zero" HorizontalAlignment="Left" Margin="660,387,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="_anzahl_>0_:" FontFamily="Georgia" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,543,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Barcodes mit 0 Flaschen:" FontFamily="Georgia" Foreground="White"/>
+        <TextBlock x:ConnectionId='5' x:Name="text_anzahl_barcodes_is_zero" HorizontalAlignment="Left" Margin="660,543,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="_anzahl_0_" FontFamily="Georgia" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,705,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Flaschen auf Lager:" FontFamily="Georgia" Foreground="White"/>
+        <TextBlock x:ConnectionId='6' x:Name="text_anzahl_flaschen" HorizontalAlignment="Left" Margin="660,705,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="_flaschen_" FontFamily="Georgia" Foreground="White"/>
 
-        <Rectangle HorizontalAlignment="Left" Height="8" Margin="49,785,0,0" VerticalAlignment="Top" Width="1816" StrokeThickness="3">
+        <Rectangle HorizontalAlignment="Left" Height="8" Margin="40,819,0,0" VerticalAlignment="Top" Width="1816" StrokeThickness="3">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -31,13 +33,22 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Button x:ConnectionId='6' x:Name="btn_system_neustart" Content=" Windows &#xa;neu starten" HorizontalAlignment="Right" Margin="0,858,70,0" VerticalAlignment="Top" Height="153" Width="366" FontSize="36" Background="#FF5F5E5E"                                  />
-        <Button x:ConnectionId='7' x:Name="btn_system_beenden" Content="Windows &#xa;beenden" HorizontalAlignment="Left" Margin="1018,858,0,0" VerticalAlignment="Top" Height="153" Width="366" FontSize="36" Background="#FF5F5E5E"                                 />
-        <Button x:ConnectionId='8' x:Name="btn_app_neustart" Content="Weinkeller &#xa;neu starten" HorizontalAlignment="Left" Margin="492,858,0,0" VerticalAlignment="Top" Height="153" Width="366" FontSize="36" Background="#FF5F5E5E"                               />
-        <Button x:ConnectionId='9' x:Name="btn_app_beenden" Content="Weinkeller &#xa; beenden" HorizontalAlignment="Left" Margin="70,858,0,0" VerticalAlignment="Top" Height="153" Width="366" FontSize="36" Background="#FF5F5E5E"                              />
-        <Button x:ConnectionId='10' x:Name="btn_data_delete" Content="Alle Einträge löschen" HorizontalAlignment="Left" Margin="1388,127,0,0" VerticalAlignment="Top" Height="153" Width="366" FontSize="36" Background="#FF5F5E5E"                              />
-        <Button x:ConnectionId='11' x:Name="btn_data_delete_zero" Content="Alle ungelagerten&#xa;Barcodes löschen" HorizontalAlignment="Left" Margin="1388,355,0,0" VerticalAlignment="Top" Height="153" Width="366" FontSize="36" Background="#FF5F5E5E"                                   />
-        <Button x:ConnectionId='12' x:Name="btn_data_delete_one" Content="Barcodeintrag&#xa;     löschen" HorizontalAlignment="Left" Margin="1388,578,0,0" VerticalAlignment="Top" Height="153" Width="366" FontSize="36" Background="#FF5F5E5E"                                  />
+        <Rectangle HorizontalAlignment="Left" Height="8" Margin="40,169,0,0" VerticalAlignment="Top" Width="1816" StrokeThickness="3">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button x:ConnectionId='7' x:Name="btn_user_save" Content="Token Speichern" HorizontalAlignment="Left" Margin="1388,8,0,0" VerticalAlignment="Top" Height="153" Width="366" FontSize="36" Background="#FF5F5E5E"                            />
+        <Button x:ConnectionId='8' x:Name="btn_system_neustart" Content=" Windows &#xa;neu starten" HorizontalAlignment="Right" Margin="0,879,70,0" VerticalAlignment="Top" Height="153" Width="366" FontSize="36" Background="#FF5F5E5E"                                  />
+        <Button x:ConnectionId='9' x:Name="btn_system_beenden" Content="Windows &#xa;beenden" HorizontalAlignment="Left" Margin="1018,879,0,0" VerticalAlignment="Top" Height="153" Width="366" FontSize="36" Background="#FF5F5E5E"                                 />
+        <Button x:ConnectionId='10' x:Name="btn_app_neustart" Content="Weinkeller &#xa;neu starten" HorizontalAlignment="Left" Margin="492,879,0,0" VerticalAlignment="Top" Height="153" Width="366" FontSize="36" Background="#FF5F5E5E"                               />
+        <Button x:ConnectionId='11' x:Name="btn_app_beenden" Content="Weinkeller &#xa; beenden" HorizontalAlignment="Left" Margin="70,879,0,0" VerticalAlignment="Top" Height="153" Width="366" FontSize="36" Background="#FF5F5E5E"                              />
+        <Button x:ConnectionId='12' x:Name="btn_data_delete" Content="Alle Daten löschen" HorizontalAlignment="Left" Margin="1388,199,0,0" VerticalAlignment="Top" Height="153" Width="366" FontSize="36" Background="#FF5F5E5E"                              />
+        <Button x:ConnectionId='13' x:Name="btn_data_delete_zero" Content="Alle ungelagerten&#xa;Barcodes löschen" HorizontalAlignment="Left" Margin="1388,427,0,0" VerticalAlignment="Top" Height="153" Width="366" FontSize="36" Background="#FF5F5E5E"                                   />
+        <Button x:ConnectionId='14' x:Name="btn_data_delete_one" Content="Barcodeintrag&#xa;     löschen" HorizontalAlignment="Left" Margin="1388,650,0,0" VerticalAlignment="Top" Height="153" Width="366" FontSize="36" Background="#FF5F5E5E"                                  />
 
     </Grid>
 </Page>

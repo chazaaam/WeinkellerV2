@@ -36,6 +36,7 @@ namespace Weinkeller.Views
         string typ;
         int quantity;
         List<string> location = new List<string>();
+        string user_token;
 
 
         public HinzufuegenPage()
@@ -46,6 +47,7 @@ namespace Weinkeller.Views
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             Load_data();
+            Load_Settings();
 
             InputTextDialogAsync("Barcode scannen");          
         }
@@ -70,7 +72,7 @@ namespace Weinkeller.Views
                 {
 
 
-                    Uri url = new Uri("http://opengtindb.org/?ean=" + barcode + "&cmd=query&queryid=400000000");
+                    Uri url = new Uri("http://opengtindb.org/?ean=" + barcode + "&cmd=query&queryid="+user_token);
                     var c = new HttpClient();
                     byte[] response = await c.GetByteArrayAsync(url);
                     string result = Encoding.UTF7.GetString(response);
@@ -386,6 +388,23 @@ namespace Weinkeller.Views
             }
             else
                 text_Barcode.Text = "";
+        }
+
+        private async void Load_Settings()
+        {
+            try
+            {
+                Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                Windows.Storage.StorageFile sampleFile = await storageFolder.GetFileAsync("settings.xml");
+
+                string text = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
+
+                text = text.Substring(text.IndexOf("UserToken:") + 10);
+                user_token = text.Substring(0, text.IndexOf(";"));
+            }catch(Exception)
+            {
+                user_token = "400000000";
+            }
         }
 
         private async void Load_data()

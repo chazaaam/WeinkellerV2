@@ -153,6 +153,7 @@
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="MinWidth" />
       <RootProperty Name="RequestedTheme" />
+      <RootProperty Name="Foreground" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="HorizontalAlignment" />
