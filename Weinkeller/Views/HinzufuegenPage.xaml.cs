@@ -38,10 +38,14 @@ namespace Weinkeller.Views
         List<string> location = new List<string>();
         string user_token;
 
+        ErrorLog Log;
+
 
         public HinzufuegenPage()
         {
             this.InitializeComponent();
+
+            Log = new ErrorLog();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -151,6 +155,7 @@ namespace Weinkeller.Views
                 catch(Exception ex)
                 {
                     ManuellesAnlegenCheck("Der Datenbankabruf konnte nicht ausgeführt werden.\nEventuell ist die Internetverbindung unterbrochen.\nFehler: "+ ex.Message);
+                    Log.WritetoFile("Der Datenbankabruf konnte nicht ausgeführt werden. Fehler: " + ex.Message);
                 }
             }
             else
@@ -211,6 +216,7 @@ namespace Weinkeller.Views
             catch(Exception ex)
             {
                 Show_Message("Die Weindaten konnte nicht geladen werden. \n\n Bitte überprüfen und ggf. löschen Sie die angelegten Barcodes.\nFehler" + ex.Message, "Fehler");
+                Log.WritetoFile("Die Weindaten konnte nicht geladen werden. Bitte überprüfen und ggf. löschen Sie die angelegten Barcodes. Fehler" + ex.Message);
             }
         }
 
@@ -270,6 +276,7 @@ namespace Weinkeller.Views
                 catch (Exception ex)
                 {
                     Show_Message("Fehler: " + ex.Message, "Ungültige Eingabe bei Anzahl");
+                    Log.WritetoFile("Fehler: " + ex.Message);
                     return;
                 }
 
@@ -317,6 +324,7 @@ namespace Weinkeller.Views
             catch (Exception ex)
             {
                 var messageCheck = new MessageDialog("Speichern ist fehlgeschlagen\nFehler: " + ex.Message, "Fehler");
+                Log.WritetoFile("Speichern ist fehlgeschlagen. Fehler: " + ex.Message);
                 messageCheck.Commands.Add(new UICommand("Zur Eingabe zurückkehren", null, 0));
                 messageCheck.Commands.Add(new UICommand("Zur Hauptseite zurückkehren", null, 1));
 
@@ -387,7 +395,10 @@ namespace Weinkeller.Views
                 barcodeLookup();
             }
             else
+            {
+                this.Frame.Navigate(typeof(WeinkellerPage));
                 text_Barcode.Text = "";
+            }
         }
 
         private async void Load_Settings()
@@ -473,6 +484,7 @@ namespace Weinkeller.Views
             }catch(Exception ex)
             {
                 Show_Message("Es ist ein Fehler beim Öffnen der Dateien aufgetreten.\nBitte überprüfen Sie den Speicherort. \n\nFehler: " + ex.Message, "Fehler");
+                Log.WritetoFile("Es ist ein Fehler beim Öffnen der Dateien aufgetreten. Bitte überprüfen Sie den Speicherort. Fehler: " + ex.Message);
             }
         }
 

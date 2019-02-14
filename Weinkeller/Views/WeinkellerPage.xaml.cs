@@ -29,6 +29,8 @@ namespace Weinkeller.Views
 
         private bool _isSwiped;
 
+        ErrorLog Log;
+
         public WeinkellerPage()
         {
             this.InitializeComponent();
@@ -37,6 +39,8 @@ namespace Weinkeller.Views
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             Load_data();
+
+            Log = new ErrorLog();
         }
 
         private async void Load_data()
@@ -124,6 +128,7 @@ namespace Weinkeller.Views
             }catch(Exception ex)
             {
                 Show_Message("Es ist ein Fehler beim Öffnen der Dateien aufgetreten.\nBitte überprüfen Sie den Speicherort. \n\nFehler: " + ex.Message, "Fehler");
+                Log.WritetoFile("Es ist ein Fehler beim Öffnen der Dateien aufgetreten. Bitte überprüfen Sie den Speicherort. Fehler: " + ex.Message);
             }
 
 
@@ -278,6 +283,7 @@ namespace Weinkeller.Views
                 catch(Exception ex)
                 {
                     Show_Message("Bild speichern konnte nicht durchgeführt werden. \n" + ex.Message, "Fehler bei Speichern");
+                    Log.WritetoFile("Bild speichern konnte nicht durchgeführt werden. Fehler: " + ex.Message);
                 }
             }
         }
@@ -308,14 +314,8 @@ namespace Weinkeller.Views
 
         private async void Create_html()
         {
-            try
-            {
-                await ApplicationData.Current.LocalFolder.CreateFolderAsync("WebPage", CreationCollisionOption.FailIfExists);
-            }
-            catch (Exception) {}
-
             // Rotwein
-            string data_string = @"<head><title>Rotwein</title><!-- Bootstrap Core CSS --><link href=""WebPage/css/bootstrap.min.css"" rel=""stylesheet""><!--Custom CSS--><link href=""WebPage/css/business-casual.css"" rel=""stylesheet""></head><body><div class=""brand"">Rotwein</div> ";
+            string data_string = @"<head><title>Rotwein</title><!-- Bootstrap Core CSS --><link href=""bootstrap.min.css"" rel=""stylesheet""><!--Custom CSS--><link href=""business-casual.css"" rel=""stylesheet""></head><body><div class=""brand"">Rotwein</div> ";
             for (int i = 0; i < WeinList.Count(); i++)
             { 
                 if(WeinList[i].getTyp() == "Rotwein")
@@ -323,12 +323,12 @@ namespace Weinkeller.Views
             }
 
             data_string = data_string + @"</div></body></html>";
-            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            Windows.Storage.StorageFolder storageFolder = await Windows.Storage.ApplicationData.Current.LocalFolder.GetFolderAsync("WebPage");
             Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync("Rotwein" + ".html", Windows.Storage.CreationCollisionOption.ReplaceExisting);
             await Windows.Storage.FileIO.WriteTextAsync(sampleFile, data_string);
 
             // Weißwein
-            data_string = @"<head><title>Weißwein</title><!-- Bootstrap Core CSS --><link href=""WebPage/css/bootstrap.min.css"" rel=""stylesheet""><!--Custom CSS--><link href=""WebPage/css/business-casual.css"" rel=""stylesheet""></head><body><div class=""brand"">Weißwein</div> ";
+            data_string = @"<head><title>Weißwein</title><!-- Bootstrap Core CSS --><link href=""bootstrap.min.css"" rel=""stylesheet""><!--Custom CSS--><link href=""business-casual.css"" rel=""stylesheet""></head><body><div class=""brand"">Weißwein</div> ";
             for (int i = 0; i < WeinList.Count(); i++)
             {
                 if (WeinList[i].getTyp() == "Weißwein")
@@ -336,11 +336,10 @@ namespace Weinkeller.Views
             }
 
             data_string = data_string + @"</div></body></html>";
-            storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
             sampleFile = await storageFolder.CreateFileAsync("Weißwein" + ".html", Windows.Storage.CreationCollisionOption.ReplaceExisting);
             await Windows.Storage.FileIO.WriteTextAsync(sampleFile, data_string);
             // Whisky
-            data_string = @"<head><title>Whisky</title><!-- Bootstrap Core CSS --><link href=""WebPage/css/bootstrap.min.css"" rel=""stylesheet""><!--Custom CSS--><link href=""WebPage/css/business-casual.css"" rel=""stylesheet""></head><body><div class=""brand"">Whisky</div> ";
+            data_string = @"<head><title>Whisky</title><!-- Bootstrap Core CSS --><link href=""bootstrap.min.css"" rel=""stylesheet""><!--Custom CSS--><link href=""business-casual.css"" rel=""stylesheet""></head><body><div class=""brand"">Whisky</div> ";
             for (int i = 0; i < WeinList.Count(); i++)
             {
                 if (WeinList[i].getTyp() == "Whisky")
@@ -348,11 +347,10 @@ namespace Weinkeller.Views
             }
 
             data_string = data_string + @"</div></body></html>";
-            storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
             sampleFile = await storageFolder.CreateFileAsync("Whisky" + ".html", Windows.Storage.CreationCollisionOption.ReplaceExisting);
             await Windows.Storage.FileIO.WriteTextAsync(sampleFile, data_string);
             //Schaumwein
-            data_string = @"<head><title>Schaumwein</title><!-- Bootstrap Core CSS --><link href=""WebPage/css/bootstrap.min.css"" rel=""stylesheet""><!--Custom CSS--><link href=""WebPage/css/business-casual.css"" rel=""stylesheet""></head><body><div class=""brand"">Schaumwein</div> ";
+            data_string = @"<head><title>Schaumwein</title><!-- Bootstrap Core CSS --><link href=""bootstrap.min.css"" rel=""stylesheet""><!--Custom CSS--><link href=""business-casual.css"" rel=""stylesheet""></head><body><div class=""brand"">Schaumwein</div> ";
             for (int i = 0; i < WeinList.Count(); i++)
             {
                 if (WeinList[i].getTyp() == "Schaumwein")
@@ -360,7 +358,6 @@ namespace Weinkeller.Views
             }
 
             data_string = data_string + @"</div></body></html>";
-            storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
             sampleFile = await storageFolder.CreateFileAsync("Schaumwein" + ".html", Windows.Storage.CreationCollisionOption.ReplaceExisting);
             await Windows.Storage.FileIO.WriteTextAsync(sampleFile, data_string);
         }

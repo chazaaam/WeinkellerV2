@@ -39,9 +39,13 @@ namespace Weinkeller.Views
 
         string user_token;
 
+        ErrorLog Log;
+
         public SettingsPage()
         {
             this.InitializeComponent();
+
+            Log = new ErrorLog();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -131,6 +135,7 @@ namespace Weinkeller.Views
             }catch(Exception ex)
             {
                 Show_Message("Es ist ein Fehler beim Öffnen der Dateien aufgetreten.\nBitte überprüfen Sie den Speicherort. \n\nFehler: " + ex.Message, "Fehler");
+                Log.WritetoFile("Es ist ein Fehler beim Öffnen der Dateien aufgetreten. Bitte überprüfen Sie den Speicherort. Fehler: " + ex.Message);
             }
         }
 
@@ -139,6 +144,7 @@ namespace Weinkeller.Views
             await User_Check("Sollen wirklich alle gespeicherten Daten gelöscht werden?\nAchtung ihre Einstellungen wie z.B. User Token werden auch zurückgesetzt.\n\n Dies kann nicht rückgängig gemacht werden.", "Daten löschen");
             if(result)
             {
+                Log.DeleteLog();
                 List<Wein> portList = new List<Wein>();
                 portList.AddRange(WeinList);
                 portList.AddRange(WeinListEmpty);

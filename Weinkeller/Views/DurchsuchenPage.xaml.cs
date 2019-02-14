@@ -30,11 +30,15 @@ namespace Weinkeller.Views
 
         bool _isSwiped;
 
+        ErrorLog Log;
+
         List<string> location = new List<string>();
 
         public DurchsuchenPage()
         {
             this.InitializeComponent();
+
+            Log = new ErrorLog();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -120,6 +124,7 @@ namespace Weinkeller.Views
                     catch (Exception ex)
                     {
                         Show_Message("Anzahl ist keine Zahl\n" + ex.Message, "Ungültige Eingabe");
+                        Log.WritetoFile("Anzahl ist keine Zahl. Fehler: " + ex.Message);
                         return;
                     }
 
@@ -175,6 +180,7 @@ namespace Weinkeller.Views
             catch (Exception ex)
             {
                 Show_Message("Es ist ein Fehler beim Öffnen der Dateien aufgetreten.\nBitte überprüfen Sie den Speicherort. \n\nFehler: " + ex.Message, "Fehler");
+                Log.WritetoFile("Es ist ein Fehler beim Öffnen der Dateien aufgetreten. Bitte überprüfen Sie den Speicherort. Fehler: " + ex.Message);
             }
 
             barcode = "";

@@ -30,9 +30,14 @@ namespace Weinkeller
 
         List<string> location_remove;
 
+        ErrorLog Log;
+
         public MainPage()
         {
+            Create_WebFolder();
             this.InitializeComponent();
+
+            Log = new ErrorLog();
         }
 
         private void NavMain_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
@@ -42,7 +47,6 @@ namespace Weinkeller
 
         private void NavMain_Loaded(object sender, RoutedEventArgs e)
         {
-
             var view = ApplicationView.GetForCurrentView();
 
             if (view.TryEnterFullScreenMode())
@@ -87,6 +91,7 @@ namespace Weinkeller
 
                         case "Nav_Hinzufuegen":
                             MainFrame.Navigate(typeof(HinzufuegenPage));
+                            Log.DeleteLog();
                             break;
 
                         case "Nav_Abziehen":
@@ -229,9 +234,10 @@ namespace Weinkeller
 
                     WeinList.Add(new Wein(temp_barcode, temp_name, temp_detailname, temp_vendor, temp_origin, temp_descr, temp_type, temp_quantity, temp_location));
                 }
-            }catch(Exception ex)
+            } catch (Exception ex)
             {
                 Show_Message("Es ist ein Fehler beim Öffnen der Dateien aufgetreten.\nBitte überprüfen Sie den Speicherort. \n\nFehler: " + ex.Message, "Fehler");
+                Log.WritetoFile("Es ist ein Fehler beim Öffnen der Dateien aufgetreten.\nBitte überprüfen Sie den Speicherort. \n\nFehler: " + ex.Message);
             }
         }
 
@@ -240,9 +246,9 @@ namespace Weinkeller
             try
             {
                 bool removed = false;
-                for(int i = 0; i < location_remove.Count(); i++)
+                for (int i = 0; i < location_remove.Count(); i++)
                 {
-                    if(wein_remove.location[i] == location_remove[0])
+                    if (wein_remove.location[i] == location_remove[0])
                     {
                         wein_remove.location.RemoveAt(i);
                         removed = wein_remove.removeBottle();
@@ -278,6 +284,7 @@ namespace Weinkeller
             catch (Exception ex)
             {
                 var messageCheck = new MessageDialog("Speichern ist fehlgeschlagen\nFehler: " + ex.Message, "Fehler");
+                Log.WritetoFile("Speichern ist fehlgeschlagen\nFehler: " + ex.Message);
 
                 var commandChosen = await messageCheck.ShowAsync();
 
@@ -290,7 +297,7 @@ namespace Weinkeller
         {
             string currentWindow = MainFrame.Content.GetType().ToString();
 
-            switch(currentWindow)
+            switch (currentWindow)
             {
                 case "Weinkeller.Views.WeinkellerPage":
                     NavMain.SelectedItem = NavMain.MenuItems[0];
@@ -302,17 +309,38 @@ namespace Weinkeller
                 case "Weinkeller.Views.HinzufuegenPage":
                     NavMain.SelectedItem = NavMain.MenuItems[2];
                     break;
-                    
+
 
             }
 
-            
+
         }
 
         private async void Show_Message(string Message, string Titel)
         {
             var messageCheck = new MessageDialog(Message, Titel);
             await messageCheck.ShowAsync();
+        }
+
+        private async void Create_WebFolder()
+        {
+            try
+            {
+                StorageFolder source = Windows.ApplicationModel.Package.Current.InstalledLocation;
+                source = await source.GetFolderAsync("WebPage");
+
+                StorageFolder destinationContainer = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+                string desiredName = "WebPage";
+
+                StorageFolder destinationFolder = null;
+                destinationFolder = await destinationContainer.CreateFolderAsync(desiredName, CreationCollisionOption.FailIfExists);
+
+                foreach (var file in await source.GetFilesAsync())
+                {
+                    await file.CopyAsync(destinationFolder, file.Name, NameCollisionOption.ReplaceExisting);
+                }
+            } catch (Exception) { }
         }
     }
 }

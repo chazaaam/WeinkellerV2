@@ -59,3 +59,8 @@ Views\SettingsPage.xbf
 Views\WeinkellerPage.xbf
 Weinkeller.xr.xml
 Properties\Default.rd.xml
+WebPage\bg.jpg
+WebPage\bootstrap.css
+WebPage\bootstrap.min.css
+WebPage\business-casual.css
+WebPage\Weinkeller.html
